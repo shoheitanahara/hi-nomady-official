@@ -78,7 +78,7 @@ export default function Home() {
                       {item.title}
                     </h2>
                     {item.image && (
-                      <div className="relative w-full h-60 mb-2 rounded-lg overflow-hidden">
+                      <div className="relative w-full h-40 mb-2 rounded-lg overflow-hidden">
                         <Image
                           src={item.image}
                           alt={item.title}
