@@ -41,28 +41,9 @@ export default function Home() {
         className="w-full max-w-[860px]"
       >
         <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
-
         <CarouselContent>
           {items.length === 0 ? (
-            <CarouselItem className="w-full basis-1/1 md:basis-1/2">
-              <div className="p-1">
-                <a
-                  href="#"
-                  className="block max-w-xs p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-                >
-                  <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    ライブ情報なし
-                  </h2>
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    ライブのお誘いおまちしております！
-                    Instagramからご連絡ください！
-                  </p>
-                  <p className="text-2xl text-black font-bold text-right">
-                    {new Date().toLocaleDateString('ja-JP')}
-                  </p>
-                </a>
-              </div>
-            </CarouselItem>
+            <NoLiveSchedule />
           ) : (
             items.map((item, index) => (
               <CarouselItem
@@ -104,5 +85,26 @@ export default function Home() {
         <CarouselNext />
       </Carousel>
     </main>
+  );
+}
+
+function NoLiveSchedule() {
+  return (
+    <CarouselItem className="w-full basis-1/1 md:basis-1/2">
+      <div className="p-1">
+        <div className="block max-w-xs p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            ライブ情報なし
+          </h2>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+            ライブのお誘いおまちしております！
+            Instagramからご連絡ください！
+          </p>
+          <p className="text-2xl text-black font-bold text-right">
+            {new Date().toLocaleDateString('ja-JP')}
+          </p>
+        </div>
+      </div>
+    </CarouselItem>
   );
 }
