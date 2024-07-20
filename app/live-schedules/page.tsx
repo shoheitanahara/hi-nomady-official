@@ -32,10 +32,11 @@ export default function LiveSchedule() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-10">
         ライブスケジュール
       </h1>
 
+      <p>※<span className="text-red-500 text-5xl">■</span>の日はライブがあります！</p>
       <div className="w-full flex justify-center p-1">
         <Calendar
           mode="single"
