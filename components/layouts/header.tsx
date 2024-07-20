@@ -18,7 +18,15 @@ const Header: FC = () => {
   return (
     <header className="bg-white shadow-md h-14 flex items-center justify-between px-4">
       <div className="flex items-center">
-      <Image src="https://img.lap.recochoku.jp/p1/imgkp?p=%2F12%2F2080%2F224025215.jpg&f=74636A&FFh=300&FFw=300&h=4ACE5&option=FFenl%3Don" alt="icon" width={32} height={32} className="h-8 w-8 mr-2" /> {/* 画像を追加 */}
+        <Link href="/">
+          <Image
+            src="/images/hi-nomady_logo.jpeg"
+            alt="icon"
+            width={126}
+            height={32}
+            className="h-8 w-32 mr-2 cursor-pointer"
+          />
+        </Link>
         <NavigationMenu className="flex items-center justify-center h-full">
           <NavigationMenuList>
             <NavigationMenuItem>

@@ -53,14 +53,12 @@ export default function LiveSchedulePage() {
         {item?.title}
       </h2>
       {item?.image && (
-        <div className="w-full h-auto mb-10 rounded-lg shadow-lg overflow-hidden">
+        <div className="w-full h-0 pb-[100%] md:pb-[75%] mb-10 rounded-lg shadow-lg overflow-hidden relative">
           <Image
             src={item.image}
             alt={item.title}
-            layout="responsive"
-            width={800}
-            height={600}
-            className="rounded-lg"
+            fill
+            className="rounded-lg object-contain"
           />
         </div>
       )}
