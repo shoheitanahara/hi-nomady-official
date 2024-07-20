@@ -11,8 +11,8 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Hi-NOMADY Officail',
-  description: 'テスト入力',
+  title: 'Hi-NOMADY Official',
+  description: 'Hi-NOMADY Official site | ライブ情報などをお届けします！',
 };
 
 export default function RootLayout({
