@@ -28,8 +28,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-20">
+    <main className="flex min-h-screen flex-col items-center p-14">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
         Hi-NOMADY Official Site
       </h1>
 
@@ -37,13 +37,13 @@ export default function Home() {
         opts={{
           align: 'start',
         }}
-        className="w-full max-w-sm"
+        className="w-full max-w-[860px]"
       >
         <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
 
-        <CarouselContent className="-ml-2 md:-ml-4 md:grid-cols-2 gap-4">
+        <CarouselContent>
           {items.length === 0 ? (
-            <CarouselItem className="pl-2 md:pl-4">
+            <CarouselItem className="w-full basis-1/1 md:basis-1/2">
               <div className="p-1">
                 <a
                   href="#"
@@ -64,10 +64,10 @@ export default function Home() {
             </CarouselItem>
           ) : (
             items.map((item, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4">
+              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
                 <div className="p-1">
                   <a
-                    href="#"
+                    href={`/live-schedules/${item.date}`}
                     className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                   >
                     <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
