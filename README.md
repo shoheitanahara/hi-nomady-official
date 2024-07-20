@@ -145,13 +145,15 @@ import { items } from '@/app/api/live-schedules/data';
 
 ### インストールと起動
 ```bash
+# Node.js のバージョンを確認してください。このプロジェクトは Node.js 20.x 以上で動作します。
+node -v
+
 # 依存関係のインストール
 npm install
 # これにより、ShadCNなどの必要なライブラリがすべてインストールされます。
 
 # 開発サーバーの起動
 npm run dev
-```
 ```
 
 ## デプロイ
