@@ -73,7 +73,7 @@ export default function LiveSchedule() {
                 <p className="font-normal text-gray-700 dark:text-gray-400 h-20 overflow-hidden text-ellipsis">
                   {item.description}
                 </p>
-                <p className="text-2xl text-black font-bold text-right">
+                <p className="text-2xl text-black font-bold text-right dark:text-white">
                   {item.date}
                 </p>
               </a>
@@ -96,7 +96,7 @@ function NoLiveSchedule() {
           <p className="font-normal text-gray-700 dark:text-gray-400">
             ライブのお誘いおまちしております！ Instagramからご連絡ください！
           </p>
-          <p className="text-2xl text-black font-bold text-right">
+          <p className="text-2xl text-black font-bold text-right dark:text-white">
             {new Date().toLocaleDateString('ja-JP')}
           </p>
         </div>
