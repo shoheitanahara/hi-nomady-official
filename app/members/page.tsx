@@ -5,8 +5,8 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 interface Member {
-  name: string; 
-  twitter: string;
+  name: string;
+  twitter?: string; // twitterはオプショナルにする
   instagram: string;
   facebook: string;
 }
@@ -30,7 +30,7 @@ const Members: React.FC = () => {
 
   return (
     <div className="container px-2 md:px-48 mt-10 mx-auto">
-      <h1 className="text-3xl font-bold mb-4">メンバーのSNSリンク集</h1>
+      <h1 className="text-3xl font-bold mb-4">メンバー</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {members.map((member, index) => (
           <Card key={index}>
@@ -39,13 +39,15 @@ const Members: React.FC = () => {
             </CardHeader>
             <CardContent>
               <ul>
-                <li className="mb-2">
-                  <Button asChild variant="twitter">
-                    <a href={member.twitter} target="_blank" rel="noopener noreferrer">
-                      Twitter
-                    </a>
-                  </Button>
-                </li>
+                {member.twitter && (
+                  <li className="mb-2">
+                    <Button asChild variant="twitter">
+                      <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                        Twitter
+                      </a>
+                    </Button>
+                  </li>
+                )}
                 <li className="mb-2">
                   <Button asChild variant="instagram">
                     <a href={member.instagram} target="_blank" rel="noopener noreferrer">
