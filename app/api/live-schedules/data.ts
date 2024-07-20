@@ -9,6 +9,7 @@ export const items = [
       O.T.M.A.P.P. Only The Meteors Are Pure Psychobilly!!
     `,
     date: '2024-09-21',
+    image: '/images/2024-09-21.jpg', // 画像ファイルのパスを更新
   },
   {
     title: '@宮古島 GoodLuck',
@@ -16,11 +17,13 @@ export const items = [
       詳細未定！
     `,
     date: '2024-10-19',
+    image: '/images/comingsoon.jpg', // 画像ファイルのパスを更新
   },
   {
     title: 'Comming Soon',
     description: '',
     date: '2024-12-31',
+    image: '/images/comingsoon.jpg', // 画像ファイルのパスを更新
   },
   // 他のアイテムを追加
 ];

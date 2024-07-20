@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import {
   Carousel,
@@ -11,7 +12,7 @@ import {
 
 export default function Home() {
   const [items, setItems] = useState<
-    { title: string; description: string; date: string }[]
+    { title: string; description: string; date: string; image?: string }[]
   >([]);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Home() {
                     ライブのお誘いおまちしております！
                     Instagramからご連絡ください！
                   </p>
-                  <p className="font-normal text-gray-500 dark:text-gray-300">
+                  <p className="text-2xl text-black font-bold text-right">
                     {new Date().toLocaleDateString('ja-JP')}
                   </p>
                 </a>
@@ -73,10 +74,15 @@ export default function Home() {
                     <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       {item.title}
                     </h2>
+                    {item.image && (
+                      <div className="relative w-full h-60 mb-2 rounded-lg overflow-hidden">
+                        <Image src={item.image} alt={item.title} layout="fill" objectFit="cover" className="rounded-lg" />
+                      </div>
+                    )}
                     <p className="font-normal text-gray-700 dark:text-gray-400 h-20 overflow-hidden text-ellipsis">
                       {item.description}
                     </p>
-                    <p className="font-normal text-gray-500 text-right dark:text-gray-300">
+                    <p className="text-2xl text-black font-bold text-right">
                       {item.date}
                     </p>
                   </a>

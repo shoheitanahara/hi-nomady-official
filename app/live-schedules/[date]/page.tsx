@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 
 interface ScheduleItem {
   title: string;
   description: string;
   date: string;
+  image: string;
 }
 
 export default function LiveSchedulePage() {
@@ -44,17 +46,22 @@ export default function LiveSchedulePage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-12 max-w-3xl mx-auto">
-      <h2 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20 text-left">
+      <h1 className="text-4xl font-extrabold lg:text-5xl mb-10 md:mb-20">
         ライブ情報
-      </h2>
+      </h1>
       <h2 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl mb-10 md:mb-20">
         {item?.title}
       </h2>
+      {item?.image && (
+        <div className="w-full h-auto mb-10 rounded-lg shadow-lg overflow-hidden">
+          <Image src={item.image} alt={item.title} layout="responsive" width={800} height={600} className="rounded-lg" />
+        </div>
+      )}
       <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {item?.description}
         </p>
-        <p className="font-normal text-gray-500 dark:text-gray-300">
+        <p className="text-2xl text-black font-bold text-right">
           {item?.date}
         </p>
       </div>
