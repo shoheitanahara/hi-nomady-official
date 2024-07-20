@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import { ModeToggle } from '../mode-toggle';
 
 import {
   NavigationMenu,
@@ -16,7 +17,7 @@ import {
 
 const Header: FC = () => {
   return (
-    <header className="bg-white shadow-md h-14 flex items-center justify-between px-4">
+    <header className="bg-white dark:bg-black shadow-md h-14 flex items-center justify-between px-4">
       <div className="flex items-center">
         <Link href="/">
           <Image
@@ -32,7 +33,7 @@ const Header: FC = () => {
             <NavigationMenuItem>
               <NavigationMenuTrigger>メニュー</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ul className="grid w-[200px] md:w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <Link href="/">ホーム</Link>
                   <Link href="/live-schedules">ライブスケジュール</Link>
                 </ul>
@@ -40,6 +41,9 @@ const Header: FC = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+      </div>
+      <div className="flex items-center">
+        <ModeToggle />
       </div>
     </header>
   );

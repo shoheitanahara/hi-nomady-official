@@ -97,8 +97,7 @@ function NoLiveSchedule() {
             ライブ情報なし
           </h2>
           <p className="font-normal text-gray-700 dark:text-gray-400">
-            ライブのお誘いおまちしております！
-            Instagramからご連絡ください！
+            ライブのお誘いおまちしております！ Instagramからご連絡ください！
           </p>
           <p className="text-2xl text-black font-bold text-right">
             {new Date().toLocaleDateString('ja-JP')}
