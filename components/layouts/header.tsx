@@ -22,19 +22,11 @@ const Header: FC = () => {
         <NavigationMenu className="flex items-center justify-center h-full">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Hi-NOMADYとは？
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>リンク</NavigationMenuTrigger>
+              <NavigationMenuTrigger>メニュー</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <Link href="/">ホーム</Link>
-                  <Link href="/about">About</Link>
-                  <Link href="/contact">Contact</Link>
+                  <Link href="/live-schedules">ライブスケジュール</Link>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>

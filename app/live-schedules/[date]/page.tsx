@@ -54,16 +54,21 @@ export default function LiveSchedulePage() {
       </h2>
       {item?.image && (
         <div className="w-full h-auto mb-10 rounded-lg shadow-lg overflow-hidden">
-          <Image src={item.image} alt={item.title} layout="responsive" width={800} height={600} className="rounded-lg" />
+          <Image
+            src={item.image}
+            alt={item.title}
+            layout="responsive"
+            width={800}
+            height={600}
+            className="rounded-lg"
+          />
         </div>
       )}
       <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {item?.description}
         </p>
-        <p className="text-2xl text-black font-bold text-right">
-          {item?.date}
-        </p>
+        <p className="text-2xl text-black font-bold text-right">{item?.date}</p>
       </div>
     </main>
   );

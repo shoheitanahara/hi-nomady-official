@@ -65,7 +65,10 @@ export default function Home() {
             </CarouselItem>
           ) : (
             items.map((item, index) => (
-              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
+              <CarouselItem
+                key={index}
+                className="w-full basis-1/1 md:basis-1/2"
+              >
                 <div className="p-1">
                   <a
                     href={`/live-schedules/${item.date}`}
@@ -76,7 +79,13 @@ export default function Home() {
                     </h2>
                     {item.image && (
                       <div className="relative w-full h-60 mb-2 rounded-lg overflow-hidden">
-                        <Image src={item.image} alt={item.title} layout="fill" objectFit="cover" className="rounded-lg" />
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-lg"
+                        />
                       </div>
                     )}
                     <p className="font-normal text-gray-700 dark:text-gray-400 h-20 overflow-hidden text-ellipsis">

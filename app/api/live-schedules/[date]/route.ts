@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { items } from '../data'; // itemsをインポート
 
-export async function GET(request: Request, { params }: { params: { date: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { date: string } }
+) {
   const { date } = params;
   const item = items.find((item) => item.date === date);
 
