@@ -11,7 +11,8 @@ export async function GET() {
     },
     {
       title: 'Another notable acquisition',
-      description: 'Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.',
+      description:
+        'Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.',
       date: '2024-11-30',
     },
     {
