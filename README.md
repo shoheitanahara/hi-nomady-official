@@ -1,86 +1,151 @@
-## プロジェクトの立ち上げ方
+# Hi-NOMADY Official Site
 
-このプロジェクトは[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)でブートストラップされた[Next.js](https://nextjs.org/)プロジェクトです。
+## 概要
+Hi-NOMADYの公式サイトです。ライブ情報、メンバー紹介、SNSリンクなどを提供しています。
 
-### 必要なツールのインストール
+## 使用技術
+- **Next.js**: Reactフレームワーク
+- **TypeScript**: 型安全なJavaScript
+- **TailwindCSS**: ユーティリティファーストのCSSフレームワーク
+- **ShadCN**: コンポーネントライブラリ
 
-#### Node.jsとnpmのインストール
-
-まず、Node.jsとnpmがインストールされていることを確認してください。インストールされていない場合は、[Node.jsの公式サイト](https://nodejs.org/)からインストールしてください。
-
-#### Next.jsとShadCNのインストール
-
-プロジェクトのルートディレクトリで以下のコマンドを実行して、Next.jsとShadCNをインストールします。
-
-```bash
-npx create-next-app@latest
-npm install @shadcn/ui
+## ディレクトリ構成
+```
+/components
+  /ui
+    - button.tsx
+    - card.tsx
+    - calendar.tsx
+    - carousel.tsx
+  - tunecore.tsx
+/layouts
+  - header.tsx
+/pages
+  - index.tsx
+  - live-schedules
+    - page.tsx
+    - [date]
+      - page.tsx
+  - members
+    - page.tsx
+/api
+  - members
+    - data.tsx
+  - live-schedules
+    - data.ts
 ```
 
-### プロジェクトのセットアップ
+## 主なコンポーネント
 
-#### 依存関係のインストール
+### Button
+ボタンコンポーネント。複数のバリアントとサイズをサポートしています。
 
-プロジェクトの依存関係をインストールするには、以下のコマンドを実行します:
+```typescript:components/ui/button.tsx
+startLine: 1
+endLine: 56
+```
 
+### Card
+カードコンポーネント。ヘッダー、タイトル、コンテンツ、フッターを含む。
+
+```typescript:components/ui/card.tsx
+startLine: 1
+endLine: 79
+```
+
+### Calendar
+カレンダーコンポーネント。ライブ日程をハイライト表示します。
+
+```typescript:components/ui/calendar.tsx
+startLine: 1
+endLine: 90
+```
+
+### Carousel
+カルーセルコンポーネント。ライブ情報をスライド表示します。
+
+```typescript:components/ui/carousel.tsx
+startLine: 150
+endLine: 223
+```
+
+## ページ
+
+### ホームページ
+サイトのホームページ。ライブ情報のカルーセルを表示します。
+
+```typescript:app/page.tsx
+startLine: 1
+endLine: 85
+```
+
+### メンバーページ
+メンバーのSNSリンクを表示します。
+
+```typescript:app/members/page.tsx
+startLine: 1
+endLine: 74
+```
+
+### ライブスケジュールページ
+ライブスケジュールをカレンダー形式で表示します。
+
+```typescript:app/live-schedules/page.tsx
+startLine: 1
+endLine: 89
+```
+
+### ライブスケジュール詳細ページ
+特定の日付のライブ情報を表示します。
+
+```typescript:app/live-schedules/[date]/page.tsx
+startLine: 14
+endLine: 73
+```
+
+## API
+
+### メンバーAPI
+メンバー情報を提供します。
+
+```typescript:app/api/members/data.tsx
+startLine: 1
+endLine: 22
+```
+
+### ライブスケジュールAPI
+ライブスケジュール情報を提供します。
+
+```typescript:app/api/live-schedules/data.ts
+startLine: 1
+endLine: 29
+```
+
+## 環境設定
+
+### 必要な環境変数
+- `NEXT_PUBLIC_API_URL`: APIのベースURL
+
+### インストールと起動
 ```bash
+# 依存関係のインストール
 npm install
-# または
-yarn install
-# または
-pnpm install
-```
 
-#### 環境設定
-
-プロジェクトのルートディレクトリに`.env.local`ファイルを作成し、必要な環境変数を設定します。例:
-
-```plaintext
-NEXT_PUBLIC_API_URL=https://api.example.com
-```
-
-### 開発サーバーの起動
-
-開発サーバーを起動するには、以下のコマンドを実行します:
-
-```bash
+# 開発サーバーの起動
 npm run dev
-# または
-yarn dev
-# または
-pnpm dev
-# または
-bun dev
 ```
 
-[http://localhost:3000](http://localhost:3000)をブラウザで開いて、結果を確認します。
-
-`app/page.tsx`を編集することで、ページを編集できます。ファイルを編集すると、ページは自動的に更新されます。
-
-### ビルドとデプロイ
-
-プロジェクトをビルドするには、以下のコマンドを実行します:
+## デプロイ
+Vercelを使用してデプロイします。
 
 ```bash
-npm run build
-# または
-yarn build
-# または
-pnpm build
+# Vercel CLIのインストール
+npm install -g vercel
+
+# デプロイ
+vercel
 ```
 
-ビルドが成功すると、`.next`ディレクトリに静的ファイルが生成されます。
-
-### デプロイ
-
-このプロジェクトをデプロイする最も簡単な方法は、Next.jsの作成者が提供する[Vercelプラットフォーム](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)を使用することです。
-
-詳細については、[Next.jsのデプロイメントドキュメント](https://nextjs.org/docs/deployment)を参照してください。
-
-### その他の情報
-
-- [Next.js Documentation](https://nextjs.org/docs) - Next.jsの機能とAPIについて学びます。
-- [Learn Next.js](https://nextjs.org/learn) - インタラクティブなNext.jsのチュートリアルです。
-
-Next.jsのGitHubリポジトリもチェックしてみてください。[Next.js GitHub repository](https://github.com/vercel/next.js/) - フィードバックや貢献をお待ちしています！
+## ライセンス
+このプロジェクトはMITライセンスの下で公開されています。
 ```
