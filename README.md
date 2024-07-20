@@ -147,9 +147,11 @@ import { items } from '@/app/api/live-schedules/data';
 ```bash
 # 依存関係のインストール
 npm install
+# これにより、ShadCNなどの必要なライブラリがすべてインストールされます。
 
 # 開発サーバーの起動
 npm run dev
+```
 ```
 
 ## デプロイ
