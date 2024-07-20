@@ -36,6 +36,7 @@ export default function LiveSchedule() {
         ライブスケジュール
       </h1>
 
+      <p>※<span className="text-red-500 text-2xl">■</span>の日はライブがあります！</p>
       <div className="w-full flex justify-center p-1">
         <Calendar
           mode="single"
