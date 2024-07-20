@@ -4,21 +4,21 @@ export async function GET() {
   const currentDate = new Date();
   const items = [
     {
-      title: 'Noteworthy technology acquisitions 2021',
+      title: '@東京 THE METEORS JAPAN TOUR 2024 In Cooperation with Vinyl Japan',
       description:
-        'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
+        '40年以上の活動実績を誇り、世界各地に親衛隊World Wide Wrecking Crew(WWWC)を擁する、 PSYCHOBILLY界の崇高なまでの独立峰。 THE METEORS 5年ぶりの来日ツアー決定! PSYCHOBILLY代表曲中の代表曲「WRECKIN CREW」が再び日本で奏でられる! O.T.M.A.P.P. Only The Meteors Are Pure Psychobilly!!',
+      date: '2024-09-21',
+    },
+    {
+      title: '@宮古島 GoodLuck',
+      description:
+        '詳細未定！',
+      date: '2024-10-19',
+    },
+    {
+      title: 'Comming Soon',
+      description: '',
       date: '2024-12-31',
-    },
-    {
-      title: 'Another notable acquisition',
-      description:
-        'Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.Details about another notable acquisition.',
-      date: '2024-11-30',
-    },
-    {
-      title: 'Yet another acquisition',
-      description: 'Details about yet another acquisition.',
-      date: '2024-10-15',
     },
     // 他のアイテムを追加
   ];
