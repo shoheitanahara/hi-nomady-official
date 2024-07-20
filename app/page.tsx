@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import TuneCoreLink from '@/components/tunecore';
 
 export default function Home() {
   const [items, setItems] = useState<
@@ -84,6 +85,10 @@ export default function Home() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+
+    <div className="mt-10">
+      <TuneCoreLink />
+    </div>
     </main>
   );
 }
