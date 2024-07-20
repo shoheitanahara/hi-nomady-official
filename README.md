@@ -38,35 +38,58 @@ Hi-NOMADYの公式サイトです。ライブ情報、メンバー紹介、SNS�
 ## 主なコンポーネント
 
 ### Button
-ボタンコンポーネント。複数のバリアントとサイズをサポートしています。
+ボタンコンポーネント。複数のバリアントとサイズをサポートしています。以下のように使用します。
 
-```typescript:components/ui/button.tsx
-startLine: 1
-endLine: 56
+```typescript
+import { Button } from '@/components/ui/button';
+
+<Button variant="primary" size="lg">Click me</Button>
 ```
 
 ### Card
-カードコンポーネント。ヘッダー、タイトル、コンテンツ、フッターを含む。
+カードコンポーネント。ヘッダー、タイトル、コンテンツ、フッターを含む。以下のように使用します。
 
-```typescript:components/ui/card.tsx
-startLine: 1
-endLine: 79
+```typescript
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
+
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Card content goes here.</p>
+  </CardContent>
+  <CardFooter>
+    <p>Card footer</p>
+  </CardFooter>
+</Card>
 ```
 
 ### Calendar
-カレンダーコンポーネント。ライブ日程をハイライト表示します。
+カレンダーコンポーネント。ライブ日程をハイライト表示します。以下のように使用します。
 
-```typescript:components/ui/calendar.tsx
-startLine: 1
-endLine: 90
+```typescript
+import { Calendar } from '@/components/ui/calendar';
+
+<Calendar highlightedDates={['2024-09-21', '2024-10-19']} />
 ```
 
 ### Carousel
-カルーセルコンポーネント。ライブ情報をスライド表示します。
+カルーセルコンポーネント。ライブ情報をスライド表示します。以下のように使用します。
 
-```typescript:components/ui/carousel.tsx
-startLine: 150
-endLine: 223
+```typescript
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>
+      <p>Slide 1</p>
+    </CarouselItem>
+    <CarouselItem>
+      <p>Slide 2</p>
+    </CarouselItem>
+  </CarouselContent>
+</Carousel>
 ```
 
 ## ページ
@@ -74,33 +97,29 @@ endLine: 223
 ### ホームページ
 サイトのホームページ。ライブ情報のカルーセルを表示します。
 
-```typescript:app/page.tsx
-startLine: 1
-endLine: 85
+```typescript
+import Home from '@/app/page';
 ```
 
 ### メンバーページ
 メンバーのSNSリンクを表示します。
 
-```typescript:app/members/page.tsx
-startLine: 1
-endLine: 74
+```typescript
+import Members from '@/app/members/page';
 ```
 
 ### ライブスケジュールページ
 ライブスケジュールをカレンダー形式で表示します。
 
-```typescript:app/live-schedules/page.tsx
-startLine: 1
-endLine: 89
+```typescript
+import LiveSchedule from '@/app/live-schedules/page';
 ```
 
 ### ライブスケジュール詳細ページ
 特定の日付のライブ情報を表示します。
 
-```typescript:app/live-schedules/[date]/page.tsx
-startLine: 14
-endLine: 73
+```typescript
+import LiveSchedulePage from '@/app/live-schedules/[date]/page';
 ```
 
 ## API
@@ -108,17 +127,15 @@ endLine: 73
 ### メンバーAPI
 メンバー情報を提供します。
 
-```typescript:app/api/members/data.tsx
-startLine: 1
-endLine: 22
+```typescript
+import { members } from '@/app/api/members/data';
 ```
 
 ### ライブスケジュールAPI
 ライブスケジュール情報を提供します。
 
-```typescript:app/api/live-schedules/data.ts
-startLine: 1
-endLine: 29
+```typescript
+import { items } from '@/app/api/live-schedules/data';
 ```
 
 ## 環境設定
@@ -136,7 +153,9 @@ npm run dev
 ```
 
 ## デプロイ
-Vercelを使用してデプロイします。
+デプロイは、`main` ブランチにマージされると自動的に実行されます。この設定はVercelを介して行われます。
+
+手動でデプロイする場合は、以下の手順に従います。
 
 ```bash
 # Vercel CLIのインストール
