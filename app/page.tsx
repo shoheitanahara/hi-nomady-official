@@ -126,8 +126,12 @@ export default function Home() {
         </Carousel>
       </div>
 
-      <div className="mt-10">
-        <TuneCoreLink />
+      
+      <div className="mt-20 w-full max-w-[860px]">
+      <h2 className="text-2xl font-bold tracking-tight mb-2">配信サイトで聴く</h2>
+        <div className="flex justify-center">
+          <TuneCoreLink />
+        </div>
       </div>
     </main>
   );
