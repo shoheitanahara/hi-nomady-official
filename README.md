@@ -1,13 +1,13 @@
 # Hi-NOMADY Official Site
 
 ## 概要
-Hi-NOMADYの公式サイトです。ライブ情報、メンバー紹介、SNSリンクなどを提供しています。
+[Hi-NOMADYの公式サイト](https://hi-nomady.com)です。ライブ情報、メンバー紹介、SNSリンクなどを提供しています。
 
 ## 使用技術
-- **Next.js**: Reactフレームワーク
-- **TypeScript**: 型安全なJavaScript
-- **TailwindCSS**: ユーティリティファーストのCSSフレームワーク
-- **ShadCN**: コンポーネントライブラリ
+- **Next.js**: Reactフレームワーク (バージョン 14.2.5) - [公式ドキュメント](https://nextjs.org/docs)
+- **TypeScript**: 型安全なJavaScript - [公式ドキュメント](https://www.typescriptlang.org/docs/)
+- **TailwindCSS**: ユーティリティファーストのCSSフレームワーク - [公式ドキュメント](https://tailwindcss.com/docs)
+- **ShadCN**: コンポーネントライブラリ - [公式ドキュメント](https://shadcn.dev/docs)
 
 ## ディレクトリ構成
 ```
@@ -33,6 +33,10 @@ Hi-NOMADYの公式サイトです。ライブ情報、メンバー紹介、SNS�
     - data.tsx
   - live-schedules
     - data.ts
+  - youtubes
+    - data.ts
+  - supporters
+    - data.ts
 ```
 
 ## 主なコンポーネント
@@ -40,7 +44,7 @@ Hi-NOMADYの公式サイトです。ライブ情報、メンバー紹介、SNS�
 ### Button
 ボタンコンポーネント。複数のバリアントとサイズをサポートしています。以下のように使用します。
 
-```typescript
+```tsx
 import { Button } from '@/components/ui/button';
 
 <Button variant="primary" size="lg">Click me</Button>
@@ -49,7 +53,7 @@ import { Button } from '@/components/ui/button';
 ### Card
 カードコンポーネント。ヘッダー、タイトル、コンテンツ、フッターを含む。以下のように使用します。
 
-```typescript
+```tsx
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 
 <Card>
@@ -68,7 +72,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 ### Calendar
 カレンダーコンポーネント。ライブ日程をハイライト表示します。以下のように使用します。
 
-```typescript
+```tsx
 import { Calendar } from '@/components/ui/calendar';
 
 <Calendar highlightedDates={['2024-09-21', '2024-10-19']} />
@@ -77,7 +81,7 @@ import { Calendar } from '@/components/ui/calendar';
 ### Carousel
 カルーセルコンポーネント。ライブ情報をスライド表示します。以下のように使用します。
 
-```typescript
+```tsx
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 <Carousel>
@@ -138,10 +142,21 @@ import { members } from '@/app/api/members/data';
 import { items } from '@/app/api/live-schedules/data';
 ```
 
-## 環境設定
+### YouTube動画API
+YouTube動画情報を提供します。
 
-### 必要な環境変数
-- `NEXT_PUBLIC_API_URL`: APIのベースURL
+```typescript
+import { youtubeVideos } from '@/app/api/youtubes/data';
+```
+
+### サポーター動画API
+サポーター動画情報を提供します。
+
+```typescript
+import { supportersVideos } from '@/app/api/supporters/data';
+```
+
+## 環境設定
 
 ### インストールと起動
 ```bash
