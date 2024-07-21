@@ -7,7 +7,7 @@
 - **Next.js**: Reactフレームワーク (バージョン 14.2.5) - [公式ドキュメント](https://nextjs.org/docs)
 - **TypeScript**: 型安全なJavaScript - [公式ドキュメント](https://www.typescriptlang.org/docs/)
 - **TailwindCSS**: ユーティリティファーストのCSSフレームワーク - [公式ドキュメント](https://tailwindcss.com/docs)
-- **ShadCN**: コンポーネントライブラリ - [公式ドキュメント](https://shadcn.dev/docs)
+- **ShadCN**: コンポーネントライブラリ - [公式ドキュメント](https://ui.shadcn.com/)
 
 ## ディレクトリ構成
 ```
