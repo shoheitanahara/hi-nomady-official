@@ -15,6 +15,7 @@ export default function Home() {
   const [items, setItems] = useState<
     { title: string; description: string; date: string; image?: string }[]
   >([]);
+  const [youtubeVideos, setYoutubeVideos] = useState<string[]>([]);
 
   useEffect(() => {
     // バックエンドからデータをフェッチ
@@ -27,6 +28,17 @@ export default function Home() {
       })
       .then((data) => setItems(data))
       .catch((error) => console.error('Error fetching data:', error));
+
+    // YouTube動画のデータをフェッチ
+    fetch('/api/youtubes')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => setYoutubeVideos(data))
+      .catch((error) => console.error('Error fetching YouTube videos:', error));
   }, []);
 
   return (
@@ -86,6 +98,33 @@ export default function Home() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
+        <Carousel
+          opts={{
+            align: 'start',
+          }}
+          className="w-full max-w-[860px]"
+        >
+          <CarouselContent>
+            {youtubeVideos.map((videoUrl, index) => (
+              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
+                <iframe
+                  width="100%"
+                  className="md:h-[315px] h-auto"
+                  src={videoUrl}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
 
       <div className="mt-10">
         <TuneCoreLink />
