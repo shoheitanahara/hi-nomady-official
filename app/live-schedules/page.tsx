@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
 
 export default function LiveSchedule() {

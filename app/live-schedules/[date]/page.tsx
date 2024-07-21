@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 interface ScheduleItem {
   title: string;
