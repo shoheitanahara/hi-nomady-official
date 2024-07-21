@@ -139,7 +139,7 @@ export default function Home() {
       </div>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">Supporter's Videos</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-2">Supporter&apos;s Videos</h2>
         <Carousel
           opts={{
             align: 'start',
@@ -186,7 +186,7 @@ function NoLiveSchedule() {
           <p className="font-normal text-gray-700 dark:text-gray-400">
             ライブのお誘いおまちしております！ Instagramからご連絡ください！
           </p>
-          <p className="text-2xl text-black font-bold text-right dark:text-whitedark:text-white">
+          <p className="text-2xl text-black font-bold text-right dark:text-white">
             {new Date().toLocaleDateString('ja-JP')}
           </p>
         </div>
