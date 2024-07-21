@@ -37,7 +37,6 @@ const Header: FC = () => {
               <NavigationMenuTrigger>メニュー</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[200px] md:w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <Link href="/">ホーム</Link>
                   <Link href="/live-schedules">ライブスケジュール</Link>
                   <Link href="/members">メンバー</Link>
                 </ul>
