@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 import { FC } from 'react';
 import { ModeToggle } from '../mode-toggle';
@@ -26,7 +26,10 @@ const Header: FC = () => {
             width={126}
             height={32}
             className="h-8 w-32 mr-2 cursor-pointer"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </Link>
         <NavigationMenu className="flex items-center justify-center h-full">
           <NavigationMenuList>

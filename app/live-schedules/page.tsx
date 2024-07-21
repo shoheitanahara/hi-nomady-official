@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
 
 export default function LiveSchedule() {
@@ -65,10 +65,13 @@ export default function LiveSchedule() {
                     <Image
                       src={item.image}
                       alt={item.title}
-                      layout="fill"
-                      objectFit="cover"
                       className="rounded-lg"
-                    />
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover"
+                      }} />
                   </div>
                 )}
                 <p className="font-normal text-gray-700 dark:text-gray-400 h-20 overflow-hidden text-ellipsis">

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface ScheduleItem {
   title: string;
@@ -58,7 +58,9 @@ export default function LiveSchedulePage() {
             src={item.image}
             alt={item.title}
             fill
+            priority
             className="rounded-lg object-contain"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
           />
         </div>
       )}
