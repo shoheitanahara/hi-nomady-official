@@ -20,8 +20,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="jp">
       <body>
         <SpeedInsights />
-        /** DarkModeの実装の影響で、 Warning: Extra attributes from the server:
-        class,style が発生するがきしなくてOK */
+        {/*
+        DarkModeの実装の影響
+        Warning: Extra attributes from the server: class,style が
+        発生するがきしなくてOK
+        */}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
