@@ -16,6 +16,7 @@ export default function Home() {
     { title: string; description: string; date: string; image?: string }[]
   >([]);
   const [youtubeVideos, setYoutubeVideos] = useState<string[]>([]);
+  const [supportersVideos, setSupportersVideos] = useState<string[]>([]);
 
   useEffect(() => {
     // バックエンドからデータをフェッチ
@@ -39,6 +40,17 @@ export default function Home() {
       })
       .then((data) => setYoutubeVideos(data))
       .catch((error) => console.error('Error fetching YouTube videos:', error));
+
+    // Supporters動画のデータをフェッチ
+    fetch('/api/supporters')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => setSupportersVideos(data))
+      .catch((error) => console.error('Error fetching Supporters videos:', error));
   }, []);
 
   return (
@@ -126,9 +138,35 @@ export default function Home() {
         </Carousel>
       </div>
 
-      
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold tracking-tight mb-2">Supporter's Videos</h2>
+        <Carousel
+          opts={{
+            align: 'start',
+          }}
+          className="w-full max-w-[860px]"
+        >
+          <CarouselContent>
+            {supportersVideos.map((videoUrl, index) => (
+              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
+                <iframe
+                  width="100%"
+                  className="md:h-[315px] h-auto"
+                  src={videoUrl}
+                  title="Supporters video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+
       <div className="mt-20 w-full max-w-[860px]">
-      <h2 className="text-2xl font-bold tracking-tight mb-2">配信サイトで聴く</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-2">配信サイトで聴く</h2>
         <div className="flex justify-center">
           <TuneCoreLink />
         </div>
