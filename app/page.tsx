@@ -64,13 +64,11 @@ export default function Home() {
                         <Image
                           src={item.image}
                           alt={item.title}
-                          className="rounded-lg"
+                          className="rounded-lg object-cover"
                           fill
                           priority
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          style={{
-                            objectFit: "cover"
-                          }} />
+                        />
                       </div>
                     )}
                     <p className="font-normal text-gray-700 dark:text-gray-400 h-20 overflow-hidden text-ellipsis">
