@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import { Inter } from 'next/font/google';
 import Header from '../components/layouts/header';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from '@/components/theme-provider';
 
 // RootLayoutPropsの型を定義
 interface RootLayoutProps {
@@ -15,18 +15,18 @@ export const metadata: Metadata = {
   description: 'Hi-NOMADY Official site | ライブ情報などをお届けします！',
 };
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="jp">
       <body>
         <SpeedInsights />
+        /** DarkModeの実装の影響で、 Warning: Extra attributes from the server:
+        class,style が発生するがきしなくてOK */
         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
           <Header />
           {children}

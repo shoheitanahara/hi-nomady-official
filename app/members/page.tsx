@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -42,7 +42,11 @@ const Members: React.FC = () => {
                 {member.twitter && (
                   <li className="mb-2">
                     <Button asChild variant="twitter">
-                      <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={member.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Twitter
                       </a>
                     </Button>
@@ -50,14 +54,22 @@ const Members: React.FC = () => {
                 )}
                 <li className="mb-2">
                   <Button asChild variant="instagram">
-                    <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={member.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Instagram
                     </a>
                   </Button>
                 </li>
                 <li className="mb-2">
                   <Button asChild variant="facebook">
-                    <a href={member.facebook} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={member.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Facebook
                     </a>
                   </Button>

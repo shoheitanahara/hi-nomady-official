@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import {
   Carousel,
@@ -87,9 +87,9 @@ export default function Home() {
         <CarouselNext />
       </Carousel>
 
-    <div className="mt-10">
-      <TuneCoreLink />
-    </div>
+      <div className="mt-10">
+        <TuneCoreLink />
+      </div>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from "next/image";
+import Image from 'next/image';
 import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
 
 export default function LiveSchedule() {
@@ -36,7 +36,10 @@ export default function LiveSchedule() {
         ライブスケジュール
       </h1>
 
-      <p>※<span className="text-red-500 text-2xl">■</span>の日はライブがあります！</p>
+      <p>
+        ※<span className="text-red-500 text-2xl">■</span>
+        の日はライブがあります！
+      </p>
       <div className="w-full flex justify-center p-1">
         <Calendar
           mode="single"
