@@ -50,7 +50,9 @@ export default function Home() {
         return response.json();
       })
       .then((data) => setSupportersVideos(data))
-      .catch((error) => console.error('Error fetching Supporters videos:', error));
+      .catch((error) =>
+        console.error('Error fetching Supporters videos:', error)
+      );
   }, []);
 
   return (
@@ -121,7 +123,10 @@ export default function Home() {
         >
           <CarouselContent>
             {youtubeVideos.map((videoUrl, index) => (
-              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
+              <CarouselItem
+                key={index}
+                className="w-full basis-1/1 md:basis-1/2"
+              >
                 <iframe
                   width="100%"
                   className="md:h-[315px] h-auto"
@@ -139,7 +144,9 @@ export default function Home() {
       </div>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">Supporter&apos;s Videos</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-2">
+          Supporter&apos;s Videos
+        </h2>
         <Carousel
           opts={{
             align: 'start',
@@ -148,7 +155,10 @@ export default function Home() {
         >
           <CarouselContent>
             {supportersVideos.map((videoUrl, index) => (
-              <CarouselItem key={index} className="w-full basis-1/1 md:basis-1/2">
+              <CarouselItem
+                key={index}
+                className="w-full basis-1/1 md:basis-1/2"
+              >
                 <iframe
                   width="100%"
                   className="md:h-[315px] h-auto"
@@ -166,7 +176,9 @@ export default function Home() {
       </div>
 
       <div className="mt-20 w-full max-w-[860px]">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">配信サイトで聴く</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-2">
+          配信サイトで聴く
+        </h2>
         <div className="flex justify-center">
           <TuneCoreLink />
         </div>

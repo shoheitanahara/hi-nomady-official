@@ -1,5 +1,26 @@
 export const items = [
   {
+    title: 'The Undertaker × Shinjuku club SCIENCE presents',
+    description: `
+    ＜LIVE＞
+    bw-old
+    CREAM PANDA
+    CWC.
+    Hi-Nomady
+    SakeSakeSake水
+    SCYTHEWRACK SYSTEM
+    THE NEGATIVE MIND DISTORTION
+    The QUIET&apos;S
+    The Undertaker
+    ヱヰ十 
+    焼おにぎり 
+    (AtoZ)
+    
+    GOOD FOOD SARAH(幡ヶ谷 南台TOKYO DINER)`,
+    date: '2024-08-23',
+    image: '/images/2024-08-23.jpg', // 画像ファイルのパスを更新
+  },
+  {
     title: '@東京 THE METEORS JAPAN TOUR 2024 In Cooperation with Vinyl Japan',
     description: `
       40年以上の活動実績を誇り、世界各地に親衛隊World Wide Wrecking Crew(WWWC)を擁する、
@@ -20,10 +41,11 @@ export const items = [
     image: '/images/comingsoon.jpg', // 画像ファイルのパスを更新
   },
   {
-    title: 'Comming Soon',
+    title: 'Coming Soon',
     description: '',
     date: '2024-12-31',
     image: '/images/comingsoon.jpg', // 画像ファイルのパスを更新
   },
+
   // 他のアイテムを追加
 ];

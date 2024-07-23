@@ -40,7 +40,7 @@ export default function LiveSchedule() {
         ※<span className="text-red-500 text-2xl">■</span>
         の日はライブがあります！
       </p>
-      <div className="w-full flex justify-center p-1">
+      <div className="w-full flex justify-center p-1 pb-10">
         <Calendar
           mode="single"
           selected={date}
