@@ -2,17 +2,8 @@ import { NextResponse } from 'next/server';
 import { supportersVideos } from './data';
 
 export async function GET() {
-  // Fisher-Yates shuffle
-  const shuffleArray = (array: any[]) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  };
-
   // supportersVideosをランダムにシャッフル
-  const shuffledVideos = shuffleArray([...supportersVideos]);
+  const shuffledVideos = supportersVideos.sort(() => Math.random() - 0.5);
 
   return NextResponse.json(shuffledVideos);
 }
