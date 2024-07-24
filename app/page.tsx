@@ -10,6 +10,8 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import TuneCoreLink from '@/components/tunecore';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link'; // Link imported
 
 export default function Home() {
   const [items, setItems] = useState<
@@ -112,6 +114,14 @@ export default function Home() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+
+      <div className="flex justify-center mt-4 mb-10">
+        <Button variant="outline" className="text-lg font-bold py-8 px-8">
+          <Link href="/live-schedules">
+            カレンダーで見る
+          </Link>
+        </Button>
+      </div>
 
       <div className="mt-10">
         <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
