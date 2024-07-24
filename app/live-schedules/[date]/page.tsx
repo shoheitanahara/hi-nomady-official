@@ -46,7 +46,7 @@ export default function LiveSchedulePage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-extrabold lg:text-5xl mb-10 md:mb-20">
+      <h1 className="text-4xl font-extrabold lg:text-5xl mb-10 md:mb-20 mt-10">
         ライブ情報
       </h1>
       <h2 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl mb-10 md:mb-20">
