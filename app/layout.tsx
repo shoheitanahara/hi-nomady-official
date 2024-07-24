@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="jp">
-      <body className="mt-5">
+      <body>
         <SpeedInsights  />
         {/*
         DarkModeの実装の影響

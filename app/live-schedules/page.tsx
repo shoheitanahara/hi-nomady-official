@@ -31,7 +31,7 @@ export default function LiveSchedule() {
   }); // ハイライトする日付のリストを作成
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-14">
+    <main className="flex min-h-screen flex-col items-center px-10 py-24">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
         ライブスケジュール
       </h1>
