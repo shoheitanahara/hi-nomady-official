@@ -31,9 +31,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <Header className="fixed top-0 left-0 w-full z-50" /> {/* 固定ヘッダー */}
+          <Header />
           {children}
-          {/* フッターを追加 */}
           <footer className="bg-gray-800 text-white p-4">
             <div className="container mx-auto text-center">
               <p>&copy; {new Date().getFullYear()} Hi-NOMADY. All rights reserved.</p>
