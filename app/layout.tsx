@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="jp">
-      <body>
-        <SpeedInsights />
+      <body className="mt-5">
+        <SpeedInsights  />
         {/*
         DarkModeの実装の影響
         Warning: Extra attributes from the server: class,style が
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          <Header className="fixed top-0 left-0 w-full z-50" /> {/* 固定ヘッダー */}
           {children}
           {/* フッターを追加 */}
           <footer className="bg-gray-800 text-white p-4">

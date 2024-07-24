@@ -17,11 +17,11 @@ import {
 
 const Header: FC = () => {
   return (
-    <header className="bg-white dark:bg-black shadow-md h-14 flex items-center justify-between px-4">
+    <header className="bg-white dark:bg-black shadow-md h-14 flex items-center justify-between px-4 fixed top-0 left-0 w-full z-50">
       <div className="flex items-center">
         <Link href="/">
           <Image
-            src="/images/hi-nomady_logo.jpeg"
+            src="/images/hi-nomady_logo.png"
             alt="icon"
             width={126}
             height={32}
