@@ -10,7 +10,7 @@ export const items = [
     SakeSakeSake水
     SCYTHEWRACK SYSTEM
     THE NEGATIVE MIND DISTORTION
-    The QUIET&apos;S
+    The QUIET'S
     The Undertaker
     ヱヰ十 
     焼おにぎり 

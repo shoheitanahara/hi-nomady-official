@@ -33,6 +33,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <Header />
           {children}
+          {/* フッターを追加 */}
+          <footer className="bg-gray-800 text-white p-4">
+            <div className="container mx-auto text-center">
+              <p>&copy; {new Date().getFullYear()} Hi-NOMADY. All rights reserved.</p>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
