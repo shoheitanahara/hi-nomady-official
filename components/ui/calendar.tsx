@@ -30,7 +30,7 @@ function Calendar({
   }
 
   const modifiersClassNames = {
-    highlighted: "bg-red-600 text-white font-bold" // 濃いめの赤背景、白文字、太字
+    highlighted: "bg-red-600 text-white font-bold hover:bg-red-500 hover:text-white" // 濃いめの赤背景、白文字、太字
   }
 
   return (

@@ -3,12 +3,116 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
+export function DrawerDialogDemo({
+  open,
+  setOpen,
+  selectedDate,
+}: {
+  onDateSelect: (date: Date) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  selectedDate: Date | undefined; // selectedDateを受け取る
+}) {
+  const [data, setData] = useState<any>(null); // データを格納するための状態
+
+  useEffect(() => {
+    if (selectedDate) {
+      // selectedDateが存在する場合にAPIを呼び出す
+      const date = new Date(selectedDate);
+      const adjustedDate = new Date(
+        date.getTime() - date.getTimezoneOffset() * 60000
+      ); // 日本時間に合わせる
+
+      fetch(`/api/live-schedules/${adjustedDate.toISOString().split('T')[0]}`)
+        .then((response) => {
+          if (!response.ok) {
+            // 404エラーの場合
+            setData({ title: 'ライブがありません。', description: '' }); // デフォルトメッセージ
+          } else {
+            return response.json(); // 成功した場合はJSONを返す
+          }
+        })
+        .then((fetchedData) => {
+          if (fetchedData) {
+            setData(fetchedData); // 取得したデータを状態に保存
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching schedule data:', error);
+          setData({ title: 'ライブがありません。', description: '' }); // エラー時のデフォルトメッセージ
+        });
+    } else {
+      setData(null); // selectedDateがない場合はデータをリセット
+    }
+  }, [selectedDate]); // selectedDateが変更されたときに実行
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button onClick={() => {}} className="hidden" />
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px] w-[90%]">
+        <DialogHeader>
+          <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>{' '}
+          {/* データが取得中の場合はLoadingを表示 */}
+          <DialogDescription>
+            {data ? (
+              <div>
+                {/* 取得したデータを表示 */}
+                {data.image && ( // 画像が存在する場合のみ表示
+                  <div
+                    className="
+                    relative
+                    w-full
+                    h-[300px] md:h-[500px]
+                    mb-2
+                    rounded-lg 
+                    p-20
+                    overflow-hidden"
+                  >
+                    <Image
+                      src={data.image}
+                      alt={data.title}
+                      className="rounded-lg object-contain"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+                <p>{data.description}</p>
+              </div>
+            ) : (
+              <p>Loading...</p> // データが取得中の場合
+            )}
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function LiveSchedule() {
   const [items, setItems] = useState<
     { title: string; description: string; date: string; image?: string }[]
   >([]);
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [open, setOpen] = useState(false);
+
+  const handleDateSelect = (selectedDate: Date) => {
+    setDate(selectedDate); // 日付を更新
+    setOpen(true); // ダイアログを開く
+  };
 
   useEffect(() => {
     // バックエンドからデータをフェッチ
@@ -44,11 +148,28 @@ export default function LiveSchedule() {
         <Calendar
           mode="single"
           selected={date}
-          onSelect={setDate} // URL遷移を行うハンドラを渡す
+          onSelect={(selectedDate) => {
+            if (selectedDate) {
+              // selectedDateがundefinedでないことを確認
+              handleDateSelect(selectedDate); // handleDateSelectを呼び出す
+            }
+          }} // URL遷移を行うハンドラを渡す
           className="rounded-md border max-w-md"
           highlightedDates={highlightedDates} // ハイライトする日付を渡す
         />
       </div>
+
+      <DrawerDialogDemo
+        onDateSelect={handleDateSelect}
+        open={open}
+        setOpen={(isOpen) => {
+          setOpen(isOpen);
+          if (!isOpen) {
+            setDate(undefined); // 閉じられたときにselectedDateをnullに設定して、同日を再選択できるようにする
+          }
+        }}
+        selectedDate={date}
+      />
 
       <div className="w-full max-w-[860px] flex flex-wrap">
         {items.length === 0 ? (
