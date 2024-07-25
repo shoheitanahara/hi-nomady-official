@@ -19,7 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="jp">
       <body>
-        <SpeedInsights  />
+        <SpeedInsights />
         {/*
         DarkModeの実装の影響
         Warning: Extra attributes from the server: class,style が
@@ -35,7 +35,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
           <footer className="bg-gray-800 text-white p-4">
             <div className="container mx-auto text-center">
-              <p>&copy; {new Date().getFullYear()} Hi-NOMADY. All rights reserved.</p>
+              <p>
+                &copy; {new Date().getFullYear()} Hi-NOMADY. All rights
+                reserved.
+              </p>
             </div>
           </footer>
         </ThemeProvider>

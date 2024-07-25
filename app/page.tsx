@@ -117,9 +117,7 @@ export default function Home() {
 
       <div className="flex justify-center mt-4 mb-10">
         <Button className="text-lg font-bold py-8 px-8">
-          <Link href="/live-schedules">
-            カレンダーで見る
-          </Link>
+          <Link href="/live-schedules">カレンダーで見る</Link>
         </Button>
       </div>
 
