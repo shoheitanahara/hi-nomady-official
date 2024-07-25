@@ -13,7 +13,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-export function DrawerDialogDemo({
+function DialogDemo({
   open,
   setOpen,
   selectedDate,
@@ -159,7 +159,7 @@ export default function LiveSchedule() {
         />
       </div>
 
-      <DrawerDialogDemo
+      <DialogDemo
         onDateSelect={handleDateSelect}
         open={open}
         setOpen={(isOpen) => {
