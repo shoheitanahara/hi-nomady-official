@@ -61,7 +61,7 @@ function DialogDemo({
       <DialogTrigger asChild>
         <Button onClick={() => {}} className="hidden" />
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] w-[90%]">
+      <DialogContent className="sm:max-w-[425px] w-[90%] pt-10">
         <DialogHeader>
           <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>{' '}
           {/* データが取得中の場合はLoadingを表示 */}
