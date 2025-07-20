@@ -65,9 +65,17 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center px-14 py-24">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl md:mb-10">
         Hi-NOMADY Official Site
       </h1>
+
+      <Image
+        src="/images/top_header.jpg"
+        alt="Top Header"
+        width={600}
+        height={200}
+        className="mb-10"
+      />
 
       <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
 
@@ -136,36 +144,6 @@ export default function Home() {
       </div>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
-        <Carousel
-          opts={{
-            align: 'start',
-          }}
-          className="w-full max-w-[860px]"
-        >
-          <CarouselContent>
-            {youtubeVideos.map((videoUrl, index) => (
-              <CarouselItem
-                key={index}
-                className="w-full basis-1/1 md:basis-1/2"
-              >
-                <iframe
-                  width="100%"
-                  className="md:h-[315px] h-auto"
-                  src={videoUrl}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-
-      <div className="mt-10">
         <h2 className="text-2xl font-bold tracking-tight mb-2">
           Supporter&apos;s Videos
         </h2>
@@ -186,6 +164,38 @@ export default function Home() {
                   className="md:h-[315px] h-auto"
                   src={videoUrl}
                   title="Supporters video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+
+
+
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
+        <Carousel
+          opts={{
+            align: 'start',
+          }}
+          className="w-full max-w-[860px]"
+        >
+          <CarouselContent>
+            {youtubeVideos.map((videoUrl, index) => (
+              <CarouselItem
+                key={index}
+                className="w-full basis-1/1 md:basis-1/2"
+              >
+                <iframe
+                  width="100%"
+                  className="md:h-[315px] h-auto"
+                  src={videoUrl}
+                  title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>

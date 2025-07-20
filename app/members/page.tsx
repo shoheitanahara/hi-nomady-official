@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 interface Member {
   name: string;
   twitter?: string; // twitterはオプショナルにする
-  instagram: string;
-  facebook: string;
+  instagram?: string;
+  facebook?: string;
 }
 
 const Members: React.FC = () => {
@@ -52,28 +52,32 @@ const Members: React.FC = () => {
                     </Button>
                   </li>
                 )}
-                <li className="mb-2">
-                  <Button asChild variant="instagram">
-                    <a
-                      href={member.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Instagram
-                    </a>
-                  </Button>
-                </li>
-                <li className="mb-2">
-                  <Button asChild variant="facebook">
-                    <a
-                      href={member.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Facebook
-                    </a>
-                  </Button>
-                </li>
+                {member.instagram && (
+                  <li className="mb-2">
+                    <Button asChild variant="instagram">
+                      <a
+                        href={member.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Instagram
+                      </a>
+                    </Button>
+                  </li>
+                )}
+                {member.facebook && (
+                  <li className="mb-2">
+                    <Button asChild variant="facebook">
+                      <a
+                        href={member.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Facebook
+                      </a>
+                    </Button>
+                  </li>
+                )}
               </ul>
             </CardContent>
           </Card>
