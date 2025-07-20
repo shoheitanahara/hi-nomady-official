@@ -18,6 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="jp">
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <body>
         <SpeedInsights />
         {/*
@@ -27,7 +30,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
