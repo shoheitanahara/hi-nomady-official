@@ -48,6 +48,7 @@ export default function CalendarComponent({ onDateSelect }: CalendarComponentPro
   const handleDateSelectInternal = (selectedDate: Date | undefined) => {
     if (!selectedDate) return;
     setDate(selectedDate);
+    setData(null); // ダイアログを開く前にデータをリセット
     setOpen(true);
     onDateSelect(selectedDate);
 
