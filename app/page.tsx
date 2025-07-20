@@ -12,6 +12,7 @@ import {
 import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link'; // Link imported
+import CalendarComponent from '@/components/ui/calender-component'; // カレンダーコンポーネントをインポート
 
 export default function Home() {
   const [items, setItems] = useState<
@@ -57,11 +58,25 @@ export default function Home() {
       );
   }, []);
 
+  const handleDateSelect = (selectedDate: Date) => {
+    // 日付が選択されたときの処理をここに記述
+    console.log('Selected date:', selectedDate);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center px-14 py-24">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
         Hi-NOMADY Official Site
       </h1>
+
+      <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
+
+      <p>
+        ※<span className="text-red-500 text-2xl">■</span>
+        の日はライブがあります！
+      </p>
+
+      <CalendarComponent onDateSelect={handleDateSelect} />
 
       <Carousel
         opts={{
@@ -69,7 +84,6 @@ export default function Home() {
         }}
         className="w-full max-w-[860px]"
       >
-        <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
         <CarouselContent>
           {items.length === 0 ? (
             <NoLiveSchedule />
@@ -115,9 +129,9 @@ export default function Home() {
         <CarouselNext />
       </Carousel>
 
-      <div className="flex justify-center mt-4 mb-10">
-        <Button className="text-lg font-bold py-8 px-8">
-          <Link href="/live-schedules">カレンダーで見る</Link>
+      <div className="flex justify-center mb-10">
+        <Button className="text-lg font-bold pt-8 pb-8 px-8">
+          <Link href="/live-schedules">スケジュールをすべて見る</Link>
         </Button>
       </div>
 

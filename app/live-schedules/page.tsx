@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
+import CalendarComponent from '@/components/ui/calender-component'; // カレンダーコンポーネントをインポート
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -127,13 +127,6 @@ export default function LiveSchedule() {
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
-  const highlightedDates = items.map((item) => {
-    const date = new Date(item.date);
-    return new Date(date.getTime() - date.getTimezoneOffset() * 60000) // 日本時間に合わせる
-      .toISOString()
-      .split('T')[0];
-  }); // ハイライトする日付のリストを作成
-
   return (
     <main className="flex min-h-screen flex-col items-center px-10 py-24">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
@@ -144,32 +137,8 @@ export default function LiveSchedule() {
         ※<span className="text-red-500 text-2xl">■</span>
         の日はライブがあります！
       </p>
-      <div className="w-full flex justify-center p-1 pb-10">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={(selectedDate) => {
-            if (selectedDate) {
-              // selectedDateがundefinedでないことを確認
-              handleDateSelect(selectedDate); // handleDateSelectを呼び出す
-            }
-          }} // URL遷移を行うハンドラを渡す
-          className="rounded-md border max-w-md"
-          highlightedDates={highlightedDates} // ハイライトする日付を渡す
-        />
-      </div>
 
-      <DialogDemo
-        onDateSelect={handleDateSelect}
-        open={open}
-        setOpen={(isOpen) => {
-          setOpen(isOpen);
-          if (!isOpen) {
-            setDate(undefined); // 閉じられたときにselectedDateをnullに設定して、同日を再選択できるようにする
-          }
-        }}
-        selectedDate={date}
-      />
+      <CalendarComponent onDateSelect={handleDateSelect} />
 
       <div className="w-full max-w-[860px] flex flex-wrap">
         {items.length === 0 ? (
