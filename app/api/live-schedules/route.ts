@@ -2,11 +2,8 @@ import { NextResponse } from 'next/server';
 import { items } from './data'; // itemsを外部ファイルからインポート
 
 export async function GET() {
-  const currentDate = new Date();
+  // すべてのアイテムを最新順に並べ替える
+  const sortedItems = items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  const filteredItems = items.filter(
-    (item) => new Date(item.date) >= currentDate
-  );
-
-  return NextResponse.json(filteredItems);
+  return NextResponse.json(sortedItems);
 }
