@@ -148,8 +148,8 @@ export const items = [
     title: 'Welcome To The Parade',
     description: `
     `,
-    date: '2025-08-25',
-    image: '/images/2025-08-25.jpg', 
+    date: '2025-08-24',
+    image: '/images/2025-08-24.jpg', 
   },
   {
     title: 'Sick Live DUB & PSYCHOBILLY',
@@ -185,6 +185,52 @@ export const items = [
     `,
     date: '2025-09-27',
     image: '/images/2025-09-27.jpg', 
+  },
+  {
+    title: 'やまそら祭 @狭山稲荷山公園',
+    description: `
+    `,
+    date: '2025-10-04',
+    image: '/images/2025-10-04.jpg', 
+  },
+  {
+    title: 'Hi-NOMADY presents DAIZE Night Vol.5@新宿',
+    description: `DAIZE Night　vol 5
+ACT:	
+＜LIVE＞
+Hi-NOMADY
+ZEROSEN
+すてばち
+the boing
+
+＜DJs＞
+ROBINSON
+ikb skatepsychos
+SHIGERU
+（SLAP of CEMTERY）
+KARTOOZE
+
+OPEN:	18:00
+START:	18:30
+ADV:	3000
+DOOR:	未定
+    `,
+    date: '2025-10-11',
+    image: '/images/2025-10-11.jpg', 
+  },
+  {
+    title: 'Tokyo RUSITC JUMBOREE @新宿',
+    description: `
+    `,
+    date: '2025-11-01',
+    image: '/images/2025-11-01.jpg', 
+  },
+  {
+    title: 'Doggie Doggie presents Honnie Bucket vol.23 @渋谷',
+    description: `
+    `,
+    date: '2025-12-06',
+    image: '/images/2025-12-06.jpg', 
   },
 
   // 他のアイテムを追加
