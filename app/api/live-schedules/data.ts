@@ -219,7 +219,7 @@ DOOR:	未定
     image: '/images/2025-10-11.jpg', 
   },
   {
-    title: 'Tokyo RUSITC JUMBOREE @新宿',
+    title: 'Tokyo RUSITC JAMBOREE @新宿',
     description: `
     `,
     date: '2025-11-01',
