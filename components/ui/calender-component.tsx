@@ -17,7 +17,9 @@ interface CalendarComponentProps {
   onDateSelect: (date: Date) => void;
 }
 
-export default function CalendarComponent({ onDateSelect }: CalendarComponentProps) {
+export default function CalendarComponent({
+  onDateSelect,
+}: CalendarComponentProps) {
   const [items, setItems] = useState<
     { title: string; description: string; date: string; image?: string }[]
   >([]);
@@ -53,7 +55,9 @@ export default function CalendarComponent({ onDateSelect }: CalendarComponentPro
     onDateSelect(selectedDate);
 
     // APIを呼び出してデータを取得
-    const adjustedDate = new Date(selectedDate.getTime() - selectedDate.getTimezoneOffset() * 60000);
+    const adjustedDate = new Date(
+      selectedDate.getTime() - selectedDate.getTimezoneOffset() * 60000
+    );
     fetch(`/api/live-schedules/${adjustedDate.toISOString().split('T')[0]}`)
       .then((response) => {
         if (!response.ok) {
@@ -89,26 +93,28 @@ export default function CalendarComponent({ onDateSelect }: CalendarComponentPro
         <DialogContent className="sm:max-w-[425px] w-[90%] pt-10">
           <DialogHeader>
             <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>
-            <DialogDescription>
-              {data ? (
-                <div>
-                  {data.image && (
-                    <div className="relative w-full h-[300px] md:h-[500px] mb-2 rounded-lg p-20 overflow-hidden">
-                      <Image
-                        src={data.image}
-                        alt={data.title}
-                        className="rounded-lg object-contain"
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                  )}
-                  <p>{data.description}</p>
-                </div>
-              ) : (
-                <p>Loading...</p>
-              )}
+            <DialogDescription asChild>
+              <div>
+                {data ? (
+                  <>
+                    {data.image && (
+                      <div className="relative w-full h-[300px] md:h-[500px] mb-2 rounded-lg p-20 overflow-hidden">
+                        <Image
+                          src={data.image}
+                          alt={data.title}
+                          className="rounded-lg object-contain"
+                          fill
+                          priority
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    <p>{data.description}</p>
+                  </>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

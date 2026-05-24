@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import CalendarComponent from '@/components/ui/calender-component'; // カレンダーコンポーネントをインポート
 import { Button } from '@/components/ui/button';
 import {
@@ -51,8 +52,6 @@ function DialogDemo({
           console.error('Error fetching schedule data:', error);
           setData({ title: 'ライブがありません。', description: '' }); // エラー時のデフォルトメッセージ
         });
-    } else {
-      setData(null); // selectedDateがない場合はデータをリセット
     }
   }, [selectedDate]); // selectedDateが変更されたときに実行
 
@@ -65,13 +64,14 @@ function DialogDemo({
         <DialogHeader>
           <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>{' '}
           {/* データが取得中の場合はLoadingを表示 */}
-          <DialogDescription>
-            {data ? (
-              <div>
-                {/* 取得したデータを表示 */}
-                {data.image && ( // 画像が存在する場合のみ表示
-                  <div
-                    className="
+          <DialogDescription asChild>
+            <div>
+              {data ? (
+                <>
+                  {/* 取得したデータを表示 */}
+                  {data.image && ( // 画像が存在する場合のみ表示
+                    <div
+                      className="
                     relative
                     w-full
                     h-[300px] md:h-[500px]
@@ -79,22 +79,23 @@ function DialogDemo({
                     rounded-lg 
                     p-20
                     overflow-hidden"
-                  >
-                    <Image
-                      src={data.image}
-                      alt={data.title}
-                      className="rounded-lg object-contain"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                )}
-                <p>{data.description}</p>
-              </div>
-            ) : (
-              <p>Loading...</p> // データが取得中の場合
-            )}
+                    >
+                      <Image
+                        src={data.image}
+                        alt={data.title}
+                        className="rounded-lg object-contain"
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  <p>{data.description}</p>
+                </>
+              ) : (
+                <p>Loading...</p> // データが取得中の場合
+              )}
+            </div>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
@@ -146,7 +147,7 @@ export default function LiveSchedule() {
         ) : (
           items.map((item, index) => (
             <div key={index} className="w-full basis-full md:basis-1/2 p-1">
-              <a
+              <Link
                 href={`/live-schedules/${item.date}`}
                 className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
               >
@@ -171,7 +172,7 @@ export default function LiveSchedule() {
                 <p className="text-2xl text-black font-bold text-right dark:text-white">
                   {item.date}
                 </p>
-              </a>
+              </Link>
             </div>
           ))
         )}

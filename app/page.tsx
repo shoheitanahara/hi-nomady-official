@@ -74,6 +74,7 @@ export default function Home() {
         alt="Top Header"
         width={600}
         height={200}
+        loading="eager"
         className="mb-10"
       />
 
@@ -102,7 +103,7 @@ export default function Home() {
                 className="w-full basis-1/1 md:basis-1/2"
               >
                 <div className="p-1">
-                  <a
+                  <Link
                     href={`/live-schedules/${item.date}`}
                     className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                   >
@@ -127,7 +128,7 @@ export default function Home() {
                     <p className="text-2xl text-black font-bold text-right dark:text-white">
                       {item.date}
                     </p>
-                  </a>
+                  </Link>
                 </div>
               </CarouselItem>
             ))
@@ -174,8 +175,6 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
       </div>
-
-
 
       <div className="mt-10">
         <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>

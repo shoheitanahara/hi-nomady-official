@@ -4,7 +4,7 @@
 [Hi-NOMADYの公式サイト](https://hi-nomady.com)です。ライブ情報、メンバー紹介、SNSリンクなどを提供しています。
 
 ## 使用技術
-- **Next.js**: Reactフレームワーク (バージョン 14.2.5) - [公式ドキュメント](https://nextjs.org/docs)
+- **Next.js**: Reactフレームワーク (バージョン 16.2.6) - [公式ドキュメント](https://nextjs.org/docs)
 - **TypeScript**: 型安全なJavaScript - [公式ドキュメント](https://www.typescriptlang.org/docs/)
 - **TailwindCSS**: ユーティリティファーストのCSSフレームワーク - [公式ドキュメント](https://tailwindcss.com/docs)
 - **ShadCN**: コンポーネントライブラリ - [公式ドキュメント](https://ui.shadcn.com/)
@@ -160,8 +160,13 @@ import { supportersVideos } from '@/app/api/supporters/data';
 
 ### インストールと起動
 ```bash
-# Node.js のバージョンを確認してください。このプロジェクトは Node.js 20.x 以上で動作します。
+# Node.js のバージョンをプロジェクト指定に合わせます。
+nvm use
+
+# Node.js 22.9.0 以上を使用してください。
+# npm 11 を使用する場合も Node.js 22.9.0 以上が必要です。
 node -v
+npm -v
 
 # 依存関係のインストール
 npm install

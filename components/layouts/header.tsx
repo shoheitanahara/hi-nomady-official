@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 import { ModeToggle } from '../mode-toggle';
@@ -13,7 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from '@/components/ui/navigation-menu';
 
 const Header: FC = () => {
   return (
@@ -25,11 +25,13 @@ const Header: FC = () => {
             alt="icon"
             width={126}
             height={32}
+            loading="eager"
             className="h-8 w-32 mr-2 cursor-pointer"
             style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
         </Link>
         <NavigationMenu className="flex items-center justify-center h-full">
           <NavigationMenuList>
