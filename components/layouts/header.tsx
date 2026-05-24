@@ -3,21 +3,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { ModeToggle } from '../mode-toggle';
 
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
 const Header: FC = () => {
   return (
-    <header className="bg-white dark:bg-black shadow-md h-14 flex items-center justify-between px-4 fixed top-0 left-0 w-full z-50">
+    <header className="bg-black shadow-md h-14 flex items-center px-4 fixed top-0 left-0 w-full z-50">
       <div className="flex items-center">
         <Link href="/">
           <Image
@@ -46,9 +43,6 @@ const Header: FC = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-      </div>
-      <div className="flex items-center">
-        <ModeToggle />
       </div>
     </header>
   );

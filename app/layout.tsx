@@ -3,7 +3,6 @@ import '../styles/globals.css';
 import { Inter } from 'next/font/google';
 import Header from '../components/layouts/header';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { ThemeProvider } from '@/components/theme-provider';
 
 // RootLayoutPropsの型を定義
 interface RootLayoutProps {
@@ -18,29 +17,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja" className="dark">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body>
         <SpeedInsights />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <footer className="bg-gray-800 text-white p-4">
-            <div className="container mx-auto text-center">
-              <p>
-                &copy; {new Date().getFullYear()} Hi-NOMADY. All rights
-                reserved.
-              </p>
-            </div>
-          </footer>
-        </ThemeProvider>
+        <Header />
+        {children}
+        <footer className="bg-gray-800 text-white p-4">
+          <div className="container mx-auto text-center">
+            <p>
+              &copy; {new Date().getFullYear()} Hi-NOMADY. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
