@@ -235,7 +235,7 @@ DOOR:	未定
   {
     title: 'Hard Hit Psycho Illusion',
     description: `
-      2025.3.21 sat
+      2026.3.21 sat
       CLUB HEAVY SICK
       OPEN & START 17:30
       Adv ¥2,800+1d / Door ¥3,300+1d
@@ -253,8 +253,8 @@ DOOR:	未定
       IKB SKATE PSYCHOS（D.T.F.S!!! Records）
       OVER ALL 7
     `,
-    date: '2025-03-21',
-    image: '/images/2025-03-21.png',
+    date: '2026-03-21',
+    image: '/images/2026-03-21.png',
   },
   {
     title: 'From Australia The Koffin Rockers Japan Tour 2025',
@@ -665,6 +665,30 @@ DOOR:	未定
     `,
     date: '2026-05-15',
     image: '/images/2026-05-15.png',
+  },
+  {
+    title: 'DAYZE Night',
+    description: `
+      2026.5.16 sat
+      ラウンジバー ホットボックス
+      OPEN 20:00
+      ¥1000 + 1Drink
+
+      BANDS
+      Hi-NOMADY
+      TEDDYCONSAFOS
+      etc...
+
+      Mikio Okuhira
+
+      DJ
+      YOK-jesus
+      伊奇麻昇天
+      AKIHIRO
+      IORI
+    `,
+    date: '2026-05-16',
+    image: '/images/2026-05-16.png',
   },
   {
     title: '衝動爆音 vol.7',
