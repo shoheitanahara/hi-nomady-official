@@ -144,7 +144,7 @@ export default function Home() {
         </Button>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10 w-full max-w-[860px]">
         <h2 className="text-2xl font-bold tracking-tight mb-2">
           Supporter&apos;s Videos
         </h2>
@@ -157,17 +157,18 @@ export default function Home() {
           <CarouselContent>
             {supportersVideos.map((videoUrl, index) => (
               <CarouselItem
-                key={index}
-                className="w-full basis-1/1 md:basis-1/2"
+                key={videoUrl}
+                className="basis-full md:basis-1/2"
               >
-                <iframe
-                  width="100%"
-                  className="md:h-[315px] h-auto"
-                  src={videoUrl}
-                  title="Supporters video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <div className="w-full overflow-hidden rounded-lg">
+                  <iframe
+                    className="aspect-video w-full"
+                    src={videoUrl}
+                    title="Supporters video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -176,7 +177,7 @@ export default function Home() {
         </Carousel>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10 w-full max-w-[860px]">
         <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
         <Carousel
           opts={{
@@ -188,16 +189,17 @@ export default function Home() {
             {youtubeVideos.map((videoUrl, index) => (
               <CarouselItem
                 key={index}
-                className="w-full basis-1/1 md:basis-1/2"
+                className="basis-full md:basis-1/2"
               >
-                <iframe
-                  width="100%"
-                  className="md:h-[315px] h-auto"
-                  src={videoUrl}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <div className="w-full overflow-hidden rounded-lg">
+                  <iframe
+                    className="aspect-video w-full"
+                    src={videoUrl}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
