@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import Link from 'next/link'; // Link imported
 import CalendarComponent from '@/components/ui/calender-component'; // カレンダーコンポーネントをインポート
 
@@ -18,7 +19,6 @@ export default function Home() {
   const [items, setItems] = useState<
     { title: string; description: string; date: string; image?: string }[]
   >([]);
-  const [youtubeVideos, setYoutubeVideos] = useState<string[]>([]);
   const [supportersVideos, setSupportersVideos] = useState<string[]>([]);
 
   useEffect(() => {
@@ -32,17 +32,6 @@ export default function Home() {
       })
       .then((data) => setItems(data))
       .catch((error) => console.error('Error fetching data:', error));
-
-    // YouTube動画のデータをフェッチ
-    fetch('/api/youtubes')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => setYoutubeVideos(data))
-      .catch((error) => console.error('Error fetching YouTube videos:', error));
 
     // Supporters動画のデータをフェッチ
     fetch('/api/supporters')
@@ -144,6 +133,40 @@ export default function Home() {
         </Button>
       </div>
 
+      <section className="mt-4 w-full max-w-[620px]">
+        <Card className="overflow-hidden border-primary/20">
+          <CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
+            <Image
+              src="/images/new-album-yanamunu.png"
+              alt="HI-NOMADY ヤナムヌ ジャケット"
+              width={180}
+              height={180}
+              className="mx-auto w-[140px] rounded-md shadow-md sm:mx-0 sm:w-[180px]"
+            />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
+                New Album
+              </p>
+              <CardTitle className="mt-2 text-2xl font-extrabold sm:text-3xl">
+                HI-NOMADY - ヤナムヌ
+              </CardTitle>
+              <p className="mt-2 text-sm text-muted-foreground">
+                一般発売日: 6月17日（水）
+              </p>
+              <Button asChild className="mt-4 w-full sm:w-auto">
+                <a
+                  href="http://ameblo.jp/thousandsrecords-ameba/entry-12964437887.html?frm=theme"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  詳細を見る
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
       <div className="mt-10 w-full max-w-[860px]">
         <h2 className="text-2xl font-bold tracking-tight mb-2">
           Supporter&apos;s Videos
@@ -156,46 +179,12 @@ export default function Home() {
         >
           <CarouselContent>
             {supportersVideos.map((videoUrl, index) => (
-              <CarouselItem
-                key={videoUrl}
-                className="basis-full md:basis-1/2"
-              >
+              <CarouselItem key={videoUrl} className="basis-full md:basis-1/2">
                 <div className="w-full overflow-hidden rounded-lg">
                   <iframe
                     className="aspect-video w-full"
                     src={videoUrl}
                     title="Supporters video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-
-      <div className="mt-10 w-full max-w-[860px]">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">YouTube</h2>
-        <Carousel
-          opts={{
-            align: 'start',
-          }}
-          className="w-full max-w-[860px]"
-        >
-          <CarouselContent>
-            {youtubeVideos.map((videoUrl, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-full md:basis-1/2"
-              >
-                <div className="w-full overflow-hidden rounded-lg">
-                  <iframe
-                    className="aspect-video w-full"
-                    src={videoUrl}
-                    title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
