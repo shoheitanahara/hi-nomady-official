@@ -12,7 +12,11 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import Link from 'next/link';
+import {
+  createReservationMessage,
+  createReservationNotice,
+  INSTAGRAM_PROFILE_URL,
+} from '@/lib/reservation';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface CalendarComponentProps {
@@ -68,6 +72,21 @@ export default function CalendarComponent({
       });
   };
 
+  const handleReservationClick = async (item: LiveScheduleItem) => {
+    const message = createReservationMessage(item);
+    let copied = false;
+
+    try {
+      await navigator.clipboard.writeText(message);
+      copied = true;
+    } catch (error) {
+      console.error('Failed to copy reservation message:', error);
+    }
+
+    window.alert(createReservationNotice(message, copied));
+    window.location.href = INSTAGRAM_PROFILE_URL;
+  };
+
   return (
     <div className="w-full flex justify-center p-1 pt-4 pb-10">
       <Calendar
@@ -85,7 +104,7 @@ export default function CalendarComponent({
             <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>
           </DialogHeader>
           <DialogDescription asChild>
-            <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+            <div className="min-h-0 flex-1 overflow-y-auto pr-1 pt-4">
               {data ? (
                 <>
                   {data.image && (
@@ -106,11 +125,20 @@ export default function CalendarComponent({
                     </p>
                   ) : null}
                   {data.date ? (
-                    <Button asChild variant="outline" className="mt-4 w-full">
-                      <Link href={`/live-schedules/${data.date}`}>
-                        詳細ページを見る
-                      </Link>
-                    </Button>
+                    <div className="mt-4 rounded-lg border border-border bg-background/70 p-3">
+                      <h3 className="text-base font-bold text-foreground">
+                        前売り予約
+                      </h3>
+                      <p className="text-sm leading-6 text-muted-foreground">
+                        予約文をコピーしてInstagramを開きます。DMに貼り付けて、お名前・枚数を入力してください。
+                      </p>
+                      <Button
+                        className="mt-3 w-full"
+                        onClick={() => handleReservationClick(data)}
+                      >
+                        Instagramで予約する
+                      </Button>
+                    </div>
                   ) : null}
                 </>
               ) : (

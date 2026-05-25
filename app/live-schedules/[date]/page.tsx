@@ -4,41 +4,33 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import {
+  createReservationMessage,
+  createReservationNotice,
+  INSTAGRAM_PROFILE_URL,
+} from '@/lib/reservation';
 import type { LiveScheduleItem } from '@/types/live-schedule';
-
-const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/shoheitanahara/';
 
 export default function LiveSchedulePage() {
   const { date } = useParams();
   const [item, setItem] = useState<LiveScheduleItem | null>(null);
   const [loading, setLoading] = useState(true);
-  const [reservationStatus, setReservationStatus] = useState('');
 
   const handleReservationClick = async () => {
     if (!item) return;
 
-    const message = [
-      '前売り予約お願いします。',
-      '',
-      `日程: ${item.date}`,
-      `イベント: ${item.title}`,
-      'お名前:',
-      '枚数:',
-    ].join('\n');
+    const message = createReservationMessage(item);
+    let copied = false;
 
     try {
       await navigator.clipboard.writeText(message);
-      setReservationStatus(
-        '予約文をコピーしました。InstagramでDMを開き、貼り付けてそのまま送信してください。'
-      );
+      copied = true;
     } catch (error) {
       console.error('Failed to copy reservation message:', error);
-      setReservationStatus(
-        'InstagramでDMを開き、日程・お名前・枚数を送ってください。'
-      );
     }
 
-    window.open(INSTAGRAM_PROFILE_URL, '_blank', 'noopener,noreferrer');
+    window.alert(createReservationNotice(message, copied));
+    window.location.href = INSTAGRAM_PROFILE_URL;
   };
 
   useEffect(() => {
@@ -104,19 +96,14 @@ export default function LiveSchedulePage() {
           </h3>
           <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
             ボタンを押すと予約文がコピーされ、Instagramプロフィールを開きます。
-            DMに貼り付けて、そのまま送信してください。
+            DMに貼り付けて、お名前・枚数を入力して送信してください。
           </p>
           <Button
             className="mt-4 w-full sm:w-auto"
             onClick={handleReservationClick}
           >
-            予約文をコピーしてInstagramを開く
+            Instagramで予約する
           </Button>
-          {reservationStatus && (
-            <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">
-              {reservationStatus}
-            </p>
-          )}
         </div>
       )}
     </main>
