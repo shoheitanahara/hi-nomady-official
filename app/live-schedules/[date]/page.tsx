@@ -3,18 +3,39 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import type { LiveScheduleItem } from '@/types/live-schedule';
 
-interface ScheduleItem {
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-}
+const INSTAGRAM_DM_URL = 'https://ig.me/m/shohei.tanahara';
 
 export default function LiveSchedulePage() {
   const { date } = useParams();
-  const [item, setItem] = useState<ScheduleItem | null>(null);
+  const [item, setItem] = useState<LiveScheduleItem | null>(null);
   const [loading, setLoading] = useState(true);
+  const [reservationStatus, setReservationStatus] = useState('');
+
+  const handleReservationClick = async () => {
+    if (!item) return;
+
+    const message = [
+      '前売り予約お願いします。',
+      '',
+      `日程: ${item.date}`,
+      `イベント: ${item.title}`,
+      'お名前:',
+      '枚数:',
+    ].join('\n');
+
+    try {
+      await navigator.clipboard.writeText(message);
+      setReservationStatus('予約文をコピーしました。Instagram DMに貼り付けて送信してください。');
+    } catch (error) {
+      console.error('Failed to copy reservation message:', error);
+      setReservationStatus('Instagram DMで日程・お名前・枚数を送ってください。');
+    }
+
+    window.open(INSTAGRAM_DM_URL, '_blank', 'noopener,noreferrer');
+  };
 
   useEffect(() => {
     if (date) {
@@ -65,13 +86,31 @@ export default function LiveSchedulePage() {
         </div>
       )}
       <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="whitespace-pre-line font-normal leading-7 text-gray-700 dark:text-gray-400">
           {item?.description}
         </p>
         <p className="text-2xl text-black font-bold text-right dark:text-white">
           {item?.date}
         </p>
       </div>
+      {item && (
+        <div className="mt-8 w-full rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            前売り予約
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
+            ボタンを押すと予約文をコピーして、Instagram DMを開きます。
+          </p>
+          <Button className="mt-4 w-full sm:w-auto" onClick={handleReservationClick}>
+            Instagram DMで予約する
+          </Button>
+          {reservationStatus && (
+            <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">
+              {reservationStatus}
+            </p>
+          )}
+        </div>
+      )}
     </main>
   );
 }

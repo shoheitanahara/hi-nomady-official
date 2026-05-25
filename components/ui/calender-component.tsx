@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface CalendarComponentProps {
@@ -79,33 +80,44 @@ export default function CalendarComponent({
         <DialogTrigger asChild>
           <Button onClick={() => {}} className="hidden" />
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px] w-[90%] pt-10">
-          <DialogHeader>
+        <DialogContent className="flex max-h-[85vh] w-[90%] flex-col gap-0 overflow-hidden p-6 pt-10 sm:max-w-[425px]">
+          <DialogHeader className="shrink-0 pr-8">
             <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>
-            <DialogDescription asChild>
-              <div>
-                {data ? (
-                  <>
-                    {data.image && (
-                      <div className="relative w-full h-[300px] md:h-[500px] mb-2 rounded-lg p-20 overflow-hidden">
-                        <Image
-                          src={data.image}
-                          alt={data.title}
-                          className="rounded-lg object-contain"
-                          fill
-                          priority
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    )}
-                    <p>{data.description}</p>
-                  </>
-                ) : (
-                  <p>Loading...</p>
-                )}
-              </div>
-            </DialogDescription>
           </DialogHeader>
+          <DialogDescription asChild>
+            <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+              {data ? (
+                <>
+                  {data.image && (
+                    <div className="relative mb-3 h-[220px] w-full overflow-hidden rounded-lg md:h-[360px]">
+                      <Image
+                        src={data.image}
+                        alt={data.title}
+                        className="rounded-lg object-contain"
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  {data.description ? (
+                    <p className="whitespace-pre-line leading-6 text-foreground">
+                      {data.description}
+                    </p>
+                  ) : null}
+                  {data.date ? (
+                    <Button asChild variant="outline" className="mt-4 w-full">
+                      <Link href={`/live-schedules/${data.date}`}>
+                        詳細ページを見る
+                      </Link>
+                    </Button>
+                  ) : null}
+                </>
+              ) : (
+                <p>Loading...</p>
+              )}
+            </div>
+          </DialogDescription>
         </DialogContent>
       </Dialog>
     </div>
