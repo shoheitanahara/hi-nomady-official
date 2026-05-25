@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Calendar } from '@/components/ui/calendar'; // ShadCNのカレンダーコンポーネントをインポート
 import {
   Dialog,
@@ -12,47 +12,38 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface CalendarComponentProps {
-  onDateSelect: (date: Date) => void;
+  onDateSelect?: (date: Date) => void;
+  items: LiveScheduleItem[];
 }
 
 export default function CalendarComponent({
   onDateSelect,
+  items,
 }: CalendarComponentProps) {
-  const [items, setItems] = useState<
-    { title: string; description: string; date: string; image?: string }[]
-  >([]);
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<LiveScheduleItem | null>(null);
 
-  useEffect(() => {
-    // バックエンドからデータをフェッチ
-    fetch('/api/live-schedules')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => setItems(data))
-      .catch((error) => console.error('Error fetching data:', error));
-  }, []);
-
-  const highlightedDates = items.map((item) => {
-    const date = new Date(item.date);
-    return new Date(date.getTime() - date.getTimezoneOffset() * 60000) // 日本時間に合わせる
-      .toISOString()
-      .split('T')[0];
-  });
+  const highlightedDates = useMemo(
+    () =>
+      items.map((item) => {
+        const date = new Date(item.date);
+        return new Date(date.getTime() - date.getTimezoneOffset() * 60000) // 日本時間に合わせる
+          .toISOString()
+          .split('T')[0];
+      }),
+    [items]
+  );
 
   const handleDateSelectInternal = (selectedDate: Date | undefined) => {
     if (!selectedDate) return;
     setDate(selectedDate);
     setData(null); // ダイアログを開く前にデータをリセット
     setOpen(true);
-    onDateSelect(selectedDate);
+    onDateSelect?.(selectedDate);
 
     // APIを呼び出してデータを取得
     const adjustedDate = new Date(
@@ -61,7 +52,7 @@ export default function CalendarComponent({
     fetch(`/api/live-schedules/${adjustedDate.toISOString().split('T')[0]}`)
       .then((response) => {
         if (!response.ok) {
-          setData({ title: 'ライブがありません。', description: '' });
+          setData({ title: 'ライブがありません。', description: '', date: '' });
         } else {
           return response.json();
         }
@@ -73,7 +64,7 @@ export default function CalendarComponent({
       })
       .catch((error) => {
         console.error('Error fetching schedule data:', error);
-        setData({ title: 'ライブがありません。', description: '' });
+        setData({ title: 'ライブがありません。', description: '', date: '' });
       });
   };
 
