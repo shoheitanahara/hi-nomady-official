@@ -38,8 +38,7 @@ export default function CalendarComponent({
     [items]
   );
 
-  const handleDateSelectInternal = (selectedDate: Date | undefined) => {
-    if (!selectedDate) return;
+  const handleDayClick = (selectedDate: Date) => {
     setDate(selectedDate);
     setData(null); // ダイアログを開く前にデータをリセット
     setOpen(true);
@@ -73,7 +72,7 @@ export default function CalendarComponent({
       <Calendar
         mode="single"
         selected={date}
-        onSelect={handleDateSelectInternal}
+        onDayClick={handleDayClick}
         className="rounded-md border max-w-md"
         highlightedDates={highlightedDates}
       />
