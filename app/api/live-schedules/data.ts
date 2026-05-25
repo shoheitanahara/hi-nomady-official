@@ -755,7 +755,7 @@ DOOR:	未定
     image: '/images/2026-06-14.png',
   },
   {
-    title: 'TOKYO RUMBLE at TOP BEAT CLUB',
+    title: 'TOKYO PSYCHOBILLY CLUB at TOP BEAT CLUB',
     description: `
       2026.6.20 sat
       荻窪 TOP BEAT CLUB
