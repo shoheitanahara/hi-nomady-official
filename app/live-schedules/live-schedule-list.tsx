@@ -11,7 +11,7 @@ interface LiveScheduleListProps {
 
 export default function LiveScheduleList({ items }: LiveScheduleListProps) {
   return (
-    <main className="flex min-h-screen flex-col items-center px-10 py-24">
+    <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-10">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-10 md:mb-20">
         ライブスケジュール
       </h1>

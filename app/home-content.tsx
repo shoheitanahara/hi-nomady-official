@@ -25,7 +25,7 @@ export default function HomeContent({
   supportersVideos,
 }: HomeContentProps) {
   return (
-    <main className="flex min-h-screen flex-col items-center px-14 py-24">
+    <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-14">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl md:mb-10">
         Hi-NOMADY Official Site
       </h1>

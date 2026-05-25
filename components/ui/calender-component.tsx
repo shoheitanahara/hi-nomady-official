@@ -68,12 +68,11 @@ export default function CalendarComponent({
   };
 
   return (
-    <div className="w-full flex justify-center p-1 pb-10">
+    <div className="w-full flex justify-center p-1 pt-4 pb-10">
       <Calendar
         mode="single"
         selected={date}
         onDayClick={handleDayClick}
-        className="rounded-md border max-w-md"
         highlightedDates={highlightedDates}
       />
       <Dialog open={open} onOpenChange={setOpen}>
