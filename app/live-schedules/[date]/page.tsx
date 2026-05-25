@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
-const INSTAGRAM_DM_URL = 'https://ig.me/m/shohei.tanahara';
+const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/shoheitanahara/';
 
 export default function LiveSchedulePage() {
   const { date } = useParams();
@@ -28,13 +28,17 @@ export default function LiveSchedulePage() {
 
     try {
       await navigator.clipboard.writeText(message);
-      setReservationStatus('予約文をコピーしました。Instagram DMに貼り付けて送信してください。');
+      setReservationStatus(
+        '予約文をコピーしました。InstagramでDMを開き、貼り付けてそのまま送信してください。'
+      );
     } catch (error) {
       console.error('Failed to copy reservation message:', error);
-      setReservationStatus('Instagram DMで日程・お名前・枚数を送ってください。');
+      setReservationStatus(
+        'InstagramでDMを開き、日程・お名前・枚数を送ってください。'
+      );
     }
 
-    window.open(INSTAGRAM_DM_URL, '_blank', 'noopener,noreferrer');
+    window.open(INSTAGRAM_PROFILE_URL, '_blank', 'noopener,noreferrer');
   };
 
   useEffect(() => {
@@ -99,10 +103,14 @@ export default function LiveSchedulePage() {
             前売り予約
           </h3>
           <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
-            ボタンを押すと予約文をコピーして、Instagram DMを開きます。
+            ボタンを押すと予約文がコピーされ、Instagramプロフィールを開きます。
+            DMに貼り付けて、そのまま送信してください。
           </p>
-          <Button className="mt-4 w-full sm:w-auto" onClick={handleReservationClick}>
-            Instagram DMで予約する
+          <Button
+            className="mt-4 w-full sm:w-auto"
+            onClick={handleReservationClick}
+          >
+            予約文をコピーしてInstagramを開く
           </Button>
           {reservationStatus && (
             <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">
