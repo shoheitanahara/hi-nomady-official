@@ -12,6 +12,31 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   highlightedDates?: string[] // ハイライトする日付のリストを追加
 }
 
+function subscribeToDateChange(onStoreChange: () => void) {
+  const intervalId = window.setInterval(onStoreChange, 60 * 1000)
+  window.addEventListener('focus', onStoreChange)
+
+  return () => {
+    window.clearInterval(intervalId)
+    window.removeEventListener('focus', onStoreChange)
+  }
+}
+
+function getJapanTodayDate() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date())
+
+  const year = parts.find((part) => part.type === 'year')?.value
+  const month = parts.find((part) => part.type === 'month')?.value
+  const day = parts.find((part) => part.type === 'day')?.value
+
+  return new Date(Number(year), Number(month) - 1, Number(day))
+}
+
 function Calendar({
   className,
   classNames,
@@ -19,11 +44,13 @@ function Calendar({
   highlightedDates = [], // デフォルト値を設定
   ...props
 }: CalendarProps) {
-  const todayJST = React.useMemo(() => {
-    const now = new Date();
-    const jst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-    return new Date(jst.getFullYear(), jst.getMonth(), jst.getDate());
-  }, []);
+  const [todayJST, setTodayJST] = React.useState(getJapanTodayDate)
+
+  React.useEffect(() => {
+    return subscribeToDateChange(() => {
+      setTodayJST(getJapanTodayDate())
+    })
+  }, [])
 
   const modifiers = {
     highlighted: (date: Date) => {

@@ -6,7 +6,7 @@ import {
 } from '@/lib/live-schedules';
 import HomeContent from './home-content';
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default function Home() {
   const liveScheduleItems = sortLiveSchedulesByNewest(items);
