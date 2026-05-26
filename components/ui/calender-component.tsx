@@ -100,11 +100,11 @@ export default function CalendarComponent({
           <Button onClick={() => {}} className="hidden" />
         </DialogTrigger>
         <DialogContent className="flex max-h-[85vh] w-[90%] flex-col gap-0 overflow-hidden p-6 pt-10 sm:max-w-[425px]">
-          <DialogHeader className="shrink-0 pr-8">
+          <DialogHeader className="shrink-0 pr-8 pb-4">
             <DialogTitle>{data ? data.title : 'Loading...'}</DialogTitle>
           </DialogHeader>
           <DialogDescription asChild>
-            <div className="min-h-0 flex-1 overflow-y-auto pr-1 pt-4">
+            <div className="min-h-0 flex-1 overflow-y-auto pr-1">
               {data ? (
                 <>
                   {data.image && (
