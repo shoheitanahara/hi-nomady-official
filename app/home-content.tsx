@@ -13,15 +13,18 @@ import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import CalendarComponent from '@/components/ui/calender-component';
+import { ChevronRight } from 'lucide-react';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface HomeContentProps {
   liveScheduleItems: LiveScheduleItem[];
+  nextLiveItem: LiveScheduleItem | null;
   supportersVideos: string[];
 }
 
 export default function HomeContent({
   liveScheduleItems,
+  nextLiveItem,
   supportersVideos,
 }: HomeContentProps) {
   return (
@@ -48,58 +51,15 @@ export default function HomeContent({
 
       <CalendarComponent items={liveScheduleItems} />
 
-      <Carousel
-        opts={{
-          align: 'start',
-        }}
-        className="w-full max-w-[860px]"
-      >
-        <CarouselContent>
-          {liveScheduleItems.length === 0 ? (
-            <NoLiveSchedule />
-          ) : (
-            liveScheduleItems.map((item) => (
-              <CarouselItem
-                key={item.date}
-                className="w-full basis-1/1 md:basis-1/2"
-              >
-                <div className="p-1">
-                  <Link
-                    href={`/live-schedules/${item.date}`}
-                    className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-                  >
-                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {item.title}
-                    </h2>
-                    {item.image && (
-                      <div className="relative w-full h-40 mb-2 rounded-lg overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          className="rounded-lg object-cover"
-                          fill
-                          priority
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    )}
-                    <p className="h-20 overflow-hidden whitespace-pre-line text-ellipsis font-normal text-gray-700 dark:text-gray-400">
-                      {item.description}
-                    </p>
-                    <p className="text-2xl text-black font-bold text-right dark:text-white">
-                      {item.date}
-                    </p>
-                  </Link>
-                </div>
-              </CarouselItem>
-            ))
-          )}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <section className="mb-10 w-full max-w-[860px]">
+        {nextLiveItem ? (
+          <NextLiveCard item={nextLiveItem} />
+        ) : (
+          <NoLiveSchedule />
+        )}
+      </section>
 
-      <div className="flex justify-center mb-10">
+      <div className="mb-10 flex justify-center">
         <Button className="text-lg font-bold pt-8 pb-8 px-8">
           <Link href="/live-schedules">スケジュールをすべて見る</Link>
         </Button>
@@ -181,22 +141,72 @@ export default function HomeContent({
   );
 }
 
+function NextLiveCard({ item }: { item: LiveScheduleItem }) {
+  return (
+    <Card className="overflow-hidden rounded-xl border border-[#273041] bg-[#060b15] shadow-2xl shadow-black/40">
+      <CardContent className="grid gap-0 p-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        {item.image && (
+          <Link
+            href={`/live-schedules/${item.date}`}
+            className="relative block aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[340px]"
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              className="object-contain p-4 transition-transform duration-300 hover:scale-105"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 430px"
+            />
+          </Link>
+        )}
+
+        <div className="flex flex-col justify-between gap-6 p-6 md:p-8">
+          <div>
+            <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              <span className="rounded-full bg-red-600 px-4 py-1 text-[10px] font-extrabold uppercase tracking-[0.28em] text-white">
+                Next Live
+              </span>
+              <time className="text-lg font-extrabold tracking-wide text-blue-200">
+                {item.date}
+              </time>
+            </div>
+            <CardTitle className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">
+              {item.title}
+            </CardTitle>
+            <p className="mt-5 max-h-72 overflow-hidden whitespace-pre-line border-t border-white/10 pt-5 text-sm leading-7 text-gray-300">
+              {item.description}
+            </p>
+          </div>
+
+          <div>
+            <Button
+              asChild
+              className="h-12 w-full justify-between rounded-lg bg-white px-6 text-base font-extrabold text-gray-950 hover:bg-gray-200"
+            >
+              <Link href={`/live-schedules/${item.date}`}>
+                ライブ詳細を見る
+                <ChevronRight className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 function NoLiveSchedule() {
   return (
-    <CarouselItem className="w-full basis-1/1 md:basis-1/2">
-      <div className="p-1">
-        <div className="block max-w-xs p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-          <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            ライブ情報なし
-          </h2>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            ライブのお誘いおまちしております！ Instagramからご連絡ください！
-          </p>
-          <p className="text-2xl text-black font-bold text-right dark:text-white">
-            {new Date().toLocaleDateString('ja-JP')}
-          </p>
-        </div>
-      </div>
-    </CarouselItem>
+    <Card className="border-dashed border-primary/30 bg-card/80">
+      <CardContent className="p-6 text-center">
+        <CardTitle className="text-2xl font-extrabold">
+          ライブ情報なし
+        </CardTitle>
+        <p className="mt-3 text-muted-foreground">
+          ライブのお誘いおまちしております！ Instagramからご連絡ください！
+        </p>
+      </CardContent>
+    </Card>
   );
 }
