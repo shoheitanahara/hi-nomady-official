@@ -17,6 +17,7 @@ import {
   createReservationNotice,
   INSTAGRAM_PROFILE_URL,
 } from '@/lib/reservation';
+import { getJapanTodayDate } from '@/lib/japan-date';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface CalendarComponentProps {
@@ -28,7 +29,7 @@ export default function CalendarComponent({
   onDateSelect,
   items,
 }: CalendarComponentProps) {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useState<Date | undefined>(getJapanTodayDate);
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<LiveScheduleItem | null>(null);
 
