@@ -19,7 +19,12 @@ function Calendar({
   highlightedDates = [], // デフォルト値を設定
   ...props
 }: CalendarProps) {
-  // ライブ日程をハイライトするためにカスタムした
+  const todayJST = React.useMemo(() => {
+    const now = new Date();
+    const jst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
+    return new Date(jst.getFullYear(), jst.getMonth(), jst.getDate());
+  }, []);
+
   const modifiers = {
     highlighted: (date: Date) => {
       const dateString = new Date(date.getTime() - date.getTimezoneOffset() * 60000) // 日本時間に合わせる
@@ -38,6 +43,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       fixedWeeks
+      today={todayJST}
       className={cn(
         "w-full max-w-[360px] rounded-3xl border bg-card/80 p-3 shadow-lg shadow-black/10 sm:max-w-[430px] sm:p-6",
         className
