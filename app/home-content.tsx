@@ -182,11 +182,14 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
           <div>
             <Button
               asChild
-              className="h-12 w-full justify-between rounded-lg bg-white px-6 text-base font-extrabold text-gray-950 hover:bg-gray-200"
+              className="h-12 w-full rounded-lg bg-white px-6 text-base font-extrabold text-gray-950 hover:bg-gray-200"
             >
-              <Link href={`/live-schedules/${item.date}`}>
+              <Link
+                href={`/live-schedules/${item.date}`}
+                className="relative"
+              >
                 ライブ詳細を見る
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="absolute right-6 h-5 w-5" />
               </Link>
             </Button>
           </div>
