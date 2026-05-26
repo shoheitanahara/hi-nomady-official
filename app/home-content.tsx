@@ -13,7 +13,11 @@ import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import CalendarComponent from '@/components/ui/calender-component';
-import { ChevronRight } from 'lucide-react';
+import {
+  createReservationMessage,
+  createReservationNotice,
+  INSTAGRAM_PROFILE_URL,
+} from '@/lib/reservation';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface HomeContentProps {
@@ -142,6 +146,21 @@ export default function HomeContent({
 }
 
 function NextLiveCard({ item }: { item: LiveScheduleItem }) {
+  const handleReservationClick = async () => {
+    const message = createReservationMessage(item);
+    let copied = false;
+
+    try {
+      await navigator.clipboard.writeText(message);
+      copied = true;
+    } catch (error) {
+      console.error('Failed to copy reservation message:', error);
+    }
+
+    window.alert(createReservationNotice(message, copied));
+    window.location.href = INSTAGRAM_PROFILE_URL;
+  };
+
   return (
     <Card className="overflow-hidden rounded-xl border border-[#273041] bg-[#060b15] shadow-2xl shadow-black/40">
       <CardContent className="grid gap-0 p-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
@@ -174,23 +193,17 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
             <CardTitle className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">
               {item.title}
             </CardTitle>
-            <p className="mt-5 max-h-72 overflow-hidden whitespace-pre-line border-t border-white/10 pt-5 text-sm leading-7 text-gray-300">
+            <p className="mt-5 hidden max-h-72 overflow-y-auto whitespace-pre-line border-t border-white/10 pt-5 pr-2 text-sm leading-7 text-gray-300 sm:block">
               {item.description}
             </p>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-3">
             <Button
-              asChild
-              className="h-12 w-full rounded-lg bg-white px-6 text-base font-extrabold text-gray-950 hover:bg-gray-200"
+              className="h-12 w-full rounded-lg text-base font-extrabold"
+              onClick={handleReservationClick}
             >
-              <Link
-                href={`/live-schedules/${item.date}`}
-                className="relative"
-              >
-                ライブ詳細を見る
-                <ChevronRight className="absolute right-6 h-5 w-5" />
-              </Link>
+              Instagramで予約する
             </Button>
           </div>
         </div>
