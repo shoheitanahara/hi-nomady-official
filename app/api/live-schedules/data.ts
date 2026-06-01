@@ -784,6 +784,40 @@ DOOR:	未定
     image: '/images/2026-06-20.png',
   },
   {
+    title: 'REV-UP! vol.105 @下北沢',
+    description: `
+      2026.8.2 sun
+      Shimokitazawa 440
+      OPEN 18:00 / END 23:00
+      ADVANCE ¥2,800 + 1D / AT DOOR ¥3,300 + 1D
+
+      LIVE SHOW
+      SPIKE
+      CHICKEN JUMP SKIPS
+      HI-HOUNDS
+
+      GUEST DEE-JAY
+      SHIGERU（SLAP OF CEMETERY）
+
+      DEE-JAYS
+      RAW-HIDE
+      SEIKOU
+    `,
+    date: '2026-08-02',
+    image: '/images/2026-08-02.png',
+  },
+  {
+    title: 'CODE;PLAYORK presents Bathroom Play @新宿',
+    description: `
+      2026.8.22 sat
+      新宿 HEIST
+      OPEN TBD
+      ADV ¥2,500
+    `,
+    date: '2026-08-22',
+    image: '/images/2026-08-22.png',
+  },
+  {
     title: '空襲警報 AIR RAID WARNING',
     description: `
       2026.10.11 sun

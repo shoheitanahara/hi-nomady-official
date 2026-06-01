@@ -13,6 +13,7 @@ import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import CalendarComponent from '@/components/ui/calender-component';
+import { formatScheduleDate } from '@/lib/japan-date';
 import {
   createReservationMessage,
   createReservationNotice,
@@ -187,7 +188,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
                 Next Live
               </span>
               <time className="text-lg font-extrabold tracking-wide text-blue-200">
-                {item.date}
+                {formatScheduleDate(item.date)}
               </time>
             </div>
             <CardTitle className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">

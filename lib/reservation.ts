@@ -1,3 +1,4 @@
+import { formatScheduleDate } from '@/lib/japan-date';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 export const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/shoheitanahara/';
@@ -7,7 +8,7 @@ export function createReservationMessage(
 ) {
   return [
     '前売り予約お願いします。',
-    `日程: ${item.date}`,
+    `日程: ${formatScheduleDate(item.date)}`,
     `イベント: ${item.title}`,
     'お名前:',
     '枚数:',

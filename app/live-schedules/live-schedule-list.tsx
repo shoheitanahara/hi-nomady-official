@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CalendarComponent from '@/components/ui/calender-component';
+import { formatScheduleDate } from '@/lib/japan-date';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface LiveScheduleListProps {
@@ -52,7 +53,7 @@ export default function LiveScheduleList({ items }: LiveScheduleListProps) {
                   {item.description}
                 </p>
                 <p className="text-2xl text-black font-bold text-right dark:text-white">
-                  {item.date}
+                  {formatScheduleDate(item.date)}
                 </p>
               </Link>
             </div>

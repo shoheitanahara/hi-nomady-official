@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { formatScheduleDate } from '@/lib/japan-date';
 import {
   createReservationMessage,
   createReservationNotice,
@@ -86,7 +87,7 @@ export default function LiveSchedulePage() {
           {item?.description}
         </p>
         <p className="text-2xl text-black font-bold text-right dark:text-white">
-          {item?.date}
+          {item?.date ? formatScheduleDate(item.date) : ''}
         </p>
       </div>
       {item && (
