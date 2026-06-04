@@ -784,6 +784,29 @@ DOOR:	未定
     image: '/images/2026-06-20.png',
   },
   {
+    title: '音泉混浴 @Club CACTUS',
+    description: `
+      2026.6.26 fri
+      Club CACTUS
+      OPEN / START 19:00
+      ¥2000 w/1d
+
+      LIVE
+      Hi-Nomady
+      BOBOBO LTD
+      天狗ROCKERS
+
+      DJ
+      ERIS
+      NICE ONE KAZU
+
+      東京都港区南青山1-15-18 リーラ乃木坂B1F
+      Tel 03-3408-9577
+    `,
+    date: '2026-06-26',
+    image: '/images/2026-06-26.png',
+  },
+  {
     title: 'REV-UP! vol.105 @下北沢',
     description: `
       2026.8.2 sun
