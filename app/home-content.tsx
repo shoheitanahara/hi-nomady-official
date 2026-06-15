@@ -2,13 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import TuneCoreLink from '@/components/tunecore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
@@ -116,30 +109,22 @@ export default function HomeContent({
             すべて見る
           </Link>
         </div>
-        <Carousel
-          opts={{
-            align: 'start',
-          }}
-          className="w-full max-w-[860px]"
-        >
-          <CarouselContent>
-            {supportersVideos.map((videoUrl) => (
-              <CarouselItem key={videoUrl} className="basis-full md:basis-1/2">
-                <div className="w-full overflow-hidden rounded-lg">
-                  <iframe
-                    className="aspect-video w-full"
-                    src={videoUrl}
-                    title="Supporters video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {supportersVideos[0] ? (
+          <div className="overflow-hidden rounded-xl border border-white/20 bg-black shadow shadow-black/40">
+            <iframe
+              className="aspect-video w-full"
+              src={supportersVideos[0]}
+              title="Latest supporters video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : null}
+        <div className="mt-4 flex justify-center">
+          <Button asChild className="w-full sm:w-auto">
+            <Link href="/supporters-videos">動画をすべて見る</Link>
+          </Button>
+        </div>
       </div>
 
       <div className="mt-20 w-full max-w-[860px]">
