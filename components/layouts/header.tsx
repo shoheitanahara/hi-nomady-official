@@ -15,7 +15,7 @@ import {
 const Header: FC = () => {
   return (
     <header className="bg-black shadow-md h-14 flex items-center px-4 fixed top-0 left-0 w-full z-50">
-      <div className="flex items-center">
+      <div className="flex w-full items-center justify-between">
         <Link href="/">
           <Image
             src="/images/hi-nomady_logo.png"
@@ -30,13 +30,14 @@ const Header: FC = () => {
             }}
           />
         </Link>
-        <NavigationMenu className="flex items-center justify-center h-full">
+        <NavigationMenu className="flex h-full items-center justify-end">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>メニュー</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[200px] md:w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <Link href="/live-schedules">ライブスケジュール</Link>
+                  <Link href="/supporters-videos">Supporters Videos</Link>
                   <Link href="/members">メンバー</Link>
                 </ul>
               </NavigationMenuContent>

@@ -105,9 +105,17 @@ export default function HomeContent({
       </section>
 
       <div className="mt-10 w-full max-w-[860px]">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
-          Supporter&apos;s Videos
-        </h2>
+        <div className="mb-2 flex items-center justify-between gap-4">
+          <h2 className="text-2xl font-bold tracking-tight">
+            Supporter&apos;s Videos
+          </h2>
+          <Link
+            href="/supporters-videos"
+            className="text-sm font-bold text-muted-foreground transition-colors hover:text-white"
+          >
+            すべて見る
+          </Link>
+        </div>
         <Carousel
           opts={{
             align: 'start',
