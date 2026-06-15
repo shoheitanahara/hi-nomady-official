@@ -126,7 +126,7 @@ export default function CalendarComponent({
                     </p>
                   ) : null}
                   {data.date ? (
-                    <div className="mt-4 rounded-lg border border-border bg-background/70 p-3">
+                    <div className="mt-4 rounded-lg border border-white/20 bg-black p-3">
                       <h3 className="text-base font-bold text-foreground">
                         前売り予約
                       </h3>

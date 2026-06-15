@@ -58,7 +58,7 @@ function Calendar({
       fixedWeeks
       today={todayJST}
       className={cn(
-        "w-full max-w-[360px] rounded-3xl border bg-card/80 p-3 shadow-lg shadow-black/10 sm:max-w-[430px] sm:p-6",
+        "w-full max-w-[360px] rounded-3xl border border-white/20 bg-black p-3 shadow-lg shadow-black/40 sm:max-w-[430px] sm:p-6",
         className
       )}
       modifiers={modifiers} // ハイライトの修飾子を追加

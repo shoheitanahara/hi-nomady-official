@@ -71,7 +71,7 @@ export default function HomeContent({
       </div>
 
       <section className="mt-4 w-full max-w-[620px]">
-        <Card className="overflow-hidden border-primary/20">
+        <Card className="overflow-hidden border-white/20 bg-black">
           <CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
             <Image
               src="/images/new-album-yanamunu.png"
@@ -194,7 +194,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
             <CardTitle className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">
               {item.title}
             </CardTitle>
-            <p className="mt-5 hidden max-h-72 overflow-y-auto whitespace-pre-line border-t border-white/10 pt-5 pr-2 text-sm leading-7 text-gray-300 sm:block">
+            <p className="mt-5 hidden max-h-72 overflow-y-auto whitespace-pre-line border-t border-white/20 pt-5 pr-2 text-sm leading-7 text-gray-300 sm:block">
               {item.description}
             </p>
           </div>
@@ -215,7 +215,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
 
 function NoLiveSchedule() {
   return (
-    <Card className="border-dashed border-primary/30 bg-card/80">
+    <Card className="border-dashed border-white/20 bg-black">
       <CardContent className="p-6 text-center">
         <CardTitle className="text-2xl font-extrabold">
           ライブ情報なし

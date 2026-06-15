@@ -32,7 +32,7 @@ export default function LiveScheduleList({ items }: LiveScheduleListProps) {
             <div key={item.date} className="w-full basis-full md:basis-1/2 p-1">
               <Link
                 href={`/live-schedules/${item.date}`}
-                className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                className="block max-w-sm rounded-lg border border-white/20 bg-black p-6 shadow shadow-black/40 transition-colors hover:bg-white/5"
               >
                 <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {item.title}
@@ -68,7 +68,7 @@ function NoLiveSchedule() {
   return (
     <div className="w-full basis-full md:basis-1/2 p-1">
       <div className="p-1">
-        <div className="block max-w-xs p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block max-w-xs rounded-lg border border-white/20 bg-black p-4 shadow shadow-black/40 transition-colors hover:bg-white/5">
           <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             ライブ情報なし
           </h2>

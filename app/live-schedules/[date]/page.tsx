@@ -82,7 +82,7 @@ export default function LiveSchedulePage() {
           />
         </div>
       )}
-      <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full rounded-lg border border-white/20 bg-black p-4 shadow shadow-black/40">
         <p className="whitespace-pre-line font-normal leading-7 text-gray-700 dark:text-gray-400">
           {item?.description}
         </p>
@@ -91,7 +91,7 @@ export default function LiveSchedulePage() {
         </p>
       </div>
       {item && (
-        <div className="mt-8 w-full rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800">
+        <div className="mt-8 w-full rounded-lg border border-white/20 bg-black p-4 shadow shadow-black/40">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
             前売り予約
           </h3>
