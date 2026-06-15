@@ -35,10 +35,25 @@ const Header: FC = () => {
             <NavigationMenuItem>
               <NavigationMenuTrigger>メニュー</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[200px] md:w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <Link href="/live-schedules">ライブスケジュール</Link>
-                  <Link href="/supporters-videos">Supporters Videos</Link>
-                  <Link href="/members">メンバー</Link>
+                <ul className="grid w-[calc(100vw-2rem)] max-w-[320px] gap-2 p-3 md:w-[420px] md:max-w-none md:grid-cols-2 lg:w-[520px]">
+                  <Link
+                    href="/live-schedules"
+                    className="rounded-md px-4 py-3 text-lg font-bold transition-colors hover:bg-white/10"
+                  >
+                    ライブスケジュール
+                  </Link>
+                  <Link
+                    href="/supporters-videos"
+                    className="rounded-md px-4 py-3 text-lg font-bold transition-colors hover:bg-white/10"
+                  >
+                    Supporter&apos;s Videos
+                  </Link>
+                  <Link
+                    href="/members"
+                    className="rounded-md px-4 py-3 text-lg font-bold transition-colors hover:bg-white/10"
+                  >
+                    メンバー
+                  </Link>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
