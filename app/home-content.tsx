@@ -121,7 +121,7 @@ export default function HomeContent({
           </div>
         ) : null}
         <div className="mt-4 flex justify-center">
-          <Button asChild className="w-full sm:w-auto">
+          <Button asChild className="text-lg font-bold pt-8 pb-8 px-8">
             <Link href="/supporters-videos">動画をすべて見る</Link>
           </Button>
         </div>
