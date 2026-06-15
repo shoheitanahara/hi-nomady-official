@@ -176,12 +176,12 @@ export default function SupportersVideosContent({
                   <VideoFrame
                     id={iframeIds[index + 1]}
                     src={videoUrl}
-                    title={`Supporters video ${videoNumber}`}
+                    title={`Supporter&apos;s video ${videoNumber}`}
                     loading="lazy"
                   />
                   <div className="p-4">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                      Supporters Video
+                      Supporter&apos;s Video
                     </p>
                     <h3 className="mt-1 text-lg font-extrabold">
                       Video #{String(videoNumber).padStart(2, '0')}
