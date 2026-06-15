@@ -92,7 +92,7 @@ export default function HomeContent({
               </p>
               <Button asChild className="mt-4 w-full sm:w-auto">
                 <a
-                  href="http://ameblo.jp/thousandsrecords-ameba/entry-12964437887.html?frm=theme"
+                  href="https://shop.thousandsrecords.jp/ca18/5680/p-r-s/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
