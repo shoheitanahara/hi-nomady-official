@@ -34,13 +34,13 @@ export default function HomeContent({
 }: HomeContentProps) {
   return (
     <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-14">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl md:mb-10">
+      <h1 className="sr-only">
         Hi-NOMADY Official Site
       </h1>
 
       <Image
         src="/images/top_header.jpg"
-        alt="Top Header"
+        alt="Hi-NOMADY Official Site"
         width={600}
         height={200}
         loading="eager"
