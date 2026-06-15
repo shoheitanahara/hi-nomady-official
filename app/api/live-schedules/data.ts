@@ -299,11 +299,12 @@ DOOR:	未定
   {
     title: 'Hard Hit Psycho Illusion',
     description: `
-      2025.11.8 sat
+      2026.7.18 sat
       CLUB HEAVY SICK
       Ticket adv ¥2800+1D / door ¥3300+1D
 
       BAND
+      Saturns
       The Psyclocks
       Villainz
       Hi-Nomady
@@ -315,8 +316,8 @@ DOOR:	未定
       MIRI（西成帝国）
       Ikb Skate Psychos（D.T.F.S!!! Records）
     `,
-    date: '2025-11-08',
-    image: '/images/2025-11-08.png',
+    date: '2026-07-18',
+    image: '/images/2026-07-18.png',
   },
   {
     title: '7inch EP 発売 ONLY 100',

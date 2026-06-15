@@ -7,7 +7,7 @@ export const members = [
   },
   {
     name: 'Iori',
-    instagram: 'https://instagram.com/iori_okudaira',
+    instagram: 'https://www.instagram.com/iori_mady/',
     facebook: 'https://www.facebook.com/profile.php?id=100006453209737',
     icon: '/path/to/member1.jpg',
   },
