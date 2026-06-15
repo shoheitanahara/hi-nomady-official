@@ -163,7 +163,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
   };
 
   return (
-    <Card className="overflow-hidden rounded-xl border border-[#273041] bg-[#060b15] shadow-2xl shadow-black/40">
+    <Card className="overflow-hidden rounded-xl border border-white/20 bg-black shadow-2xl shadow-black/40">
       <CardContent className="grid gap-0 p-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         {item.image && (
           <Link
@@ -187,7 +187,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
               <span className="rounded-full bg-red-600 px-4 py-1 text-[10px] font-extrabold uppercase tracking-[0.28em] text-white">
                 Next Live
               </span>
-              <time className="text-lg font-extrabold tracking-wide text-blue-200">
+              <time className="text-lg font-extrabold tracking-wide text-gray-200">
                 {formatScheduleDate(item.date)}
               </time>
             </div>
