@@ -6,8 +6,12 @@ const YOUTUBE_PLAYING_STATE = 1;
 const YOUTUBE_IFRAME_API_SRC = 'https://www.youtube.com/iframe_api';
 
 type YouTubePlayer = {
-  pauseVideo: () => void;
-  destroy: () => void;
+  pauseVideo?: () => void;
+  destroy?: () => void;
+};
+
+type YouTubeReadyEvent = {
+  target: YouTubePlayer;
 };
 
 type YouTubeStateChangeEvent = {
@@ -19,6 +23,7 @@ type YouTubePlayerConstructor = new (
   elementId: string,
   options: {
     events: {
+      onReady: (event: YouTubeReadyEvent) => void;
       onStateChange: (event: YouTubeStateChangeEvent) => void;
     };
   }
@@ -81,6 +86,7 @@ export default function SupportersVideosContent({
   videos,
 }: SupportersVideosContentProps) {
   const playerRefs = useRef<YouTubePlayer[]>([]);
+  const readyPlayerRefs = useRef<Set<YouTubePlayer>>(new Set());
   const iframeIds = useMemo(
     () => videos.map((_, index) => `supporters-video-${index}`),
     [videos]
@@ -89,6 +95,7 @@ export default function SupportersVideosContent({
 
   useEffect(() => {
     let isMounted = true;
+    const readyPlayers = readyPlayerRefs.current;
 
     loadYouTubeIframeApi().then(() => {
       if (!isMounted || !window.YT?.Player) {
@@ -99,13 +106,20 @@ export default function SupportersVideosContent({
         (iframeId) =>
           new window.YT!.Player(iframeId, {
             events: {
+              onReady: (event) => {
+                readyPlayers.add(event.target);
+              },
               onStateChange: (event) => {
                 if (event.data !== YOUTUBE_PLAYING_STATE) {
                   return;
                 }
 
                 playerRefs.current.forEach((player) => {
-                  if (player !== event.target) {
+                  if (
+                    player !== event.target &&
+                    readyPlayers.has(player) &&
+                    typeof player.pauseVideo === 'function'
+                  ) {
                     player.pauseVideo();
                   }
                 });
@@ -117,8 +131,13 @@ export default function SupportersVideosContent({
 
     return () => {
       isMounted = false;
-      playerRefs.current.forEach((player) => player.destroy());
+      playerRefs.current.forEach((player) => {
+        if (typeof player.destroy === 'function') {
+          player.destroy();
+        }
+      });
       playerRefs.current = [];
+      readyPlayers.clear();
     };
   }, [iframeIds]);
 
