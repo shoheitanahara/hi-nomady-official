@@ -808,6 +808,12 @@ DOOR:	未定
     image: '/images/2026-06-26.png',
   },
   {
+    title: 'Sick Live DUB & PSYCHOBILLY',
+    description: `詳細未定
+    `,
+    date: '2026-07-05',
+  },
+  {
     title: 'REV-UP! vol.105 @下北沢',
     description: `
       2026.8.2 sun
