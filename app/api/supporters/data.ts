@@ -26,4 +26,5 @@ export const supportersVideos = [
   'https://www.youtube.com/embed/dXBlNnxQ7QE?si=MRCYRs79vaJz1_LC',
   'https://www.youtube.com/embed/YoV29swbm2o?si=pmlyeuJXm_G8OGX6',
   'https://www.youtube.com/embed/zI1xNJ-TCwA?si=zE6ENqfdB0kOboCy',
+  'https://www.youtube.com/embed/GeMkYXDOsWA',
 ];
