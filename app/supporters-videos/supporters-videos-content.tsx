@@ -149,7 +149,7 @@ export default function SupportersVideosContent({
             Hi-NOMADY
           </p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Supporters Videos
+            Supporter&apos;s Videos
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
             応援してくれる皆さんが投稿してくれているライブ映像や関連動画をまとめています。
