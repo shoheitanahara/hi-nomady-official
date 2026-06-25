@@ -1,5 +1,6 @@
 export const supportersVideos = [
   // 最新の動画を上に追加してください。
+  'https://www.youtube.com/embed/AMTYEgeRo9Y',
   'https://www.youtube.com/embed/X_Enw6fLMCw?si=60IeJA8JD64FysZv',
   'https://www.youtube.com/embed/I6OCOB6P2wk',
   'https://www.youtube.com/embed/DTaDdwRZ9DA?si=nX8dHaZ88xDUaV-x',

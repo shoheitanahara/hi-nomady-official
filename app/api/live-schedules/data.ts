@@ -814,6 +814,33 @@ DOOR:	未定
     date: '2026-07-05',
   },
   {
+    title: 'La Place Secrete Live & DJ @藤枝',
+    description: `
+      2026.7.11 sat
+      藤枝ブロカント
+      OPEN 18:00 / START 18:30
+      チケット ¥3000（1drink込み）
+
+      Special Guest
+      Hi-NOMADY
+
+      Daisuke（ex Swamp ratz）
+      Slap Bass弾き語り
+
+      Tatsumi（Billy's）
+      弾き語り
+
+      Tammy & the Conets
+
+      DJ Yagibilly
+
+      静岡県藤枝市田沼1丁目3-26 青木ビルB1F
+      Tel 090-1782-2624（店長 大石）
+    `,
+    date: '2026-07-11',
+    image: '/images/2026-07-11.png',
+  },
+  {
     title: 'REV-UP! vol.105 @下北沢',
     description: `
       2026.8.2 sun
