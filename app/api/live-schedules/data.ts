@@ -808,10 +808,25 @@ DOOR:	未定
     image: '/images/2026-06-26.png',
   },
   {
-    title: 'Sick Live DUB & PSYCHOBILLY',
-    description: `詳細未定
+    title: 'DUB & PSYCHOS',
+    description: `
+      2026.7.5 sun
+      Club HEAVY SICK
+      OPEN & START 17:00
+      ADV ¥2,800 + 1drink / DOOR ¥3,200 + 1drink
+
+      DJ
+      Electric Spider
+      SHIRROW（ROCKERS NITE）
+
+      OJOROJO
+      Hi-NOMADY
+      SUPER CLASS
+      天狗ロッカーズ
+      TOTAL PONKOTSU SYSTEM
     `,
     date: '2026-07-05',
+    image: '/images/2026-07-05.png',
   },
   {
     title: 'La Place Secrete Live & DJ @藤枝',
@@ -851,7 +866,7 @@ DOOR:	未定
       LIVE SHOW
       SPIKE
       CHICKEN JUMP SKIPS
-      HI-HOUNDS
+      HI-NOMADY
 
       GUEST DEE-JAY
       SHIGERU（SLAP OF CEMETERY）
@@ -880,11 +895,14 @@ DOOR:	未定
       2026.10.11 sun
       CYBER BOX
 
+      Rudy
       FAT KAZUYA BAND
       Hi-Nomady
-      ZEROSEN
-      Rudy
-      MONAWA NARES
+      NANASAWA NAREI
+      ZERO SEN
+      INFEXTION LITE 2
+
+      DJ AKIHIRO
     `,
     date: '2026-10-11',
     image: '/images/2026-10-11.png',
