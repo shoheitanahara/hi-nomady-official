@@ -879,6 +879,64 @@ DOOR:	未定
     image: '/images/2026-08-02.png',
   },
   {
+    title: 'MONSTER BILLY ATTACK',
+    description: `
+      2026.8.8 sat
+      CLUB MALCOLM
+      OPEN 18:00
+      ADM ¥3000 / AT DOOR ¥3200
+      Tel 03-6455-0225
+
+      BAND
+      CHICKEN JUMP SKIPS
+      PSYCLOCKS
+      Hi-NOMADY
+
+      DJ
+      RYOZO（Let's Go Rockin'n'Rollin'）
+      KEN（BEAT-GENERATION）
+      KOZOONY
+
+      DANCER
+      MISS ROUGE
+
+      WHISKEY GIRL
+      CHOU CHOU
+
+      PHOTO
+      T.ENAMI（CDS Candid photo）
+    `,
+    date: '2026-08-08',
+    image: '/images/2026-08-08.png',
+  },
+  {
+    title: 'Ghost Light — Izumi Kurahayashi Photo Exhibition + Live Show',
+    description: `
+      2026.8.16 sun
+      Hatagaya Club Heavy Sick
+      OPEN 18:00 / START 18:30
+      ADV ¥2500 + 1d / DOOR ¥3000 + 1d
+
+      151-0066 東京都渋谷区西原2-27-4 升本ビルB1
+
+      BAND
+      TEXACO LEATHERMAN
+      THE PSYCLOCKS
+      DETESTARD
+      ...and more
+
+      DJ
+      ROBINSON
+      MINA（TOO.MUCH.XXX）
+      IORI（HI-NOMADY）
+      SHOHEI（HI-NOMADY）
+
+      Info: Instagram @dada_izumi
+    `,
+    date: '2026-08-16',
+    image: '/images/2026-08-16.png',
+  },
+  {
     title: 'CODE;PLAYORK presents Bathroom Play @新宿',
     description: `
       2026.8.22 sat
@@ -906,6 +964,36 @@ DOOR:	未定
     `,
     date: '2026-10-11',
     image: '/images/2026-10-11.png',
+  },
+  {
+    title: 'PSYCLONE BOOGIE',
+    description: `
+      2027.1.23 sat
+      KING COBRA
+      OPEN 17:30 / START 18:00
+      ADV ¥2500 + 1d / DOOR ¥3000 + 1d
+      18才以下 FREE
+
+      LIVE SHOW
+      HI-NOMADY（東京）
+      FRANKLIN（群馬）
+      SPIDER CABINETS
+      THE ROLL UP
+      RUMBLITZ
+      Goblin Cats（姫路）
+
+      MUSIC SELECTOR
+      TOSSY（REVENGE!）
+      SHINJI（BEAT EAT UP!!）
+      OMURA
+      OKA
+      MICKY（CASTELLA RECORDS）
+
+      VINYL SHOP
+      Dirty Trash Fuck'n Show!!! Records（東京）
+    `,
+    date: '2027-01-23',
+    image: '/images/2027-01-23.png',
   },
 
   // 他のアイテムを追加
