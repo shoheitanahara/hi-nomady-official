@@ -856,6 +856,28 @@ DOOR:	未定
     image: '/images/2026-07-11.png',
   },
   {
+    title: 'BAD TASTERS',
+    description: `
+      ※Hi-NOMADYのバンドライブはありません（DJ出演のみ）
+
+      2026.7.24 fri
+      Hatagaya Club Heavy Sick
+      OPEN / START 19:00
+      ¥1000 + 1drink
+
+      STRANGE LIVE SHOW
+      中村岳大
+      Mitchy with Dead Garbageman
+      TAKA ROCK & ONEMAN HEARTBREAKER
+      HAPPY BOYZ
+
+      DJ
+      史上最低バッドテイスターズ DJ'S
+    `,
+    date: '2026-07-24',
+    image: '/images/2026-07-24.png',
+  },
+  {
     title: 'REV-UP! vol.105 @下北沢',
     description: `
       2026.8.2 sun
@@ -912,6 +934,8 @@ DOOR:	未定
   {
     title: 'Ghost Light — Izumi Kurahayashi Photo Exhibition + Live Show',
     description: `
+      ※Hi-NOMADYのバンドライブはありません（DJ出演のみ）
+
       2026.8.16 sun
       Hatagaya Club Heavy Sick
       OPEN 18:00 / START 18:30
@@ -948,6 +972,35 @@ DOOR:	未定
     image: '/images/2026-08-22.png',
   },
   {
+    title: 'YAMASORA FESTIVAL やまそら祭! 2026 @狭山稲荷山公園',
+    description: `
+      2026.10.4 sun（Day 2）
+      ※フェス開催: 2026.10.3 sat〜10.4 sun / 各日 10:00–19:00
+      埼玉県営 狭山稲荷山公園（西武池袋線 稲荷山公園駅 徒歩1分）
+      入場無料
+      ※荒天中止 / 会場に駐車場なし / 園内全面禁煙
+
+      Day 2 LINEUP（Hi-NOMADY出演日）
+      mirei Special Band
+      cocoon exs
+      Shorty & Brother Stone
+      エリカ&demeバンド
+      Hi Nomady
+      みんな〜ズ
+      Jahuana Mande
+      スーパー猛毒ちんどん
+      航空公園ジャグバンド [KKJB]
+      bridge snows RAINBOW（Hassy Tribute Band）
+      Dance School 桜＊Style
+      所吹チンドン仲間
+      燈（あかり）
+
+      Organizer: YAMASORA★PROJECT
+    `,
+    date: '2026-10-04',
+    image: '/images/2026-10-04.png',
+  },
+  {
     title: '空襲警報 AIR RAID WARNING',
     description: `
       2026.10.11 sun
@@ -964,6 +1017,30 @@ DOOR:	未定
     `,
     date: '2026-10-11',
     image: '/images/2026-10-11.png',
+  },
+  {
+    title: 'DARKMEN PRESENTS DARKNIGHTMARE vol.4 — Hi-NOMADY レコ発 @Pop! Pizza',
+    description: `
+      2026.10.17 sat
+      Pop! Pizza（京都）
+      ADV ¥3,000 + 1drink / DAY ¥3,500 + 1drink
+
+      〒602-0858 京都市上京区東桜町21-11
+
+      ACT
+      DARKMEN
+      Hi-NOMADY（宮古島）
+      THE WOODCHUCK（東京）
+      RAISE A FLAG（東京）
+
+      DJ
+      OKA
+      みり（西成帝国）
+      DEATH WADAA
+      KIYOBILLY（ALIENSLAP FROM NAGOYA）
+    `,
+    date: '2026-10-17',
+    image: '/images/2026-10-17.png',
   },
   {
     title: 'PSYCLONE BOOGIE',
