@@ -17,19 +17,19 @@ import type { LiveScheduleItem } from '@/types/live-schedule';
 interface HomeContentProps {
   liveScheduleItems: LiveScheduleItem[];
   nextLiveItem: LiveScheduleItem | null;
+  featuredPresentsItem: LiveScheduleItem | null;
   featuredHomeVideo: string | null;
 }
 
 export default function HomeContent({
   liveScheduleItems,
   nextLiveItem,
+  featuredPresentsItem,
   featuredHomeVideo,
 }: HomeContentProps) {
   return (
     <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-14">
-      <h1 className="sr-only">
-        Hi-NOMADY Official Site
-      </h1>
+      <h1 className="sr-only">Hi-NOMADY Official Site</h1>
 
       <Image
         src="/images/top_header.jpg"
@@ -40,30 +40,7 @@ export default function HomeContent({
         className="mb-10"
       />
 
-      <h2 className="text-2xl font-bold tracking-tight mb-2">ライブ情報</h2>
-
-      <p>
-        ※<span className="text-red-500 text-2xl">■</span>
-        の日はライブがあります！
-      </p>
-
-      <CalendarComponent items={liveScheduleItems} />
-
-      <section className="mb-10 w-full max-w-[860px]">
-        {nextLiveItem ? (
-          <NextLiveCard item={nextLiveItem} />
-        ) : (
-          <NoLiveSchedule />
-        )}
-      </section>
-
-      <div className="mb-10 flex justify-center">
-        <Button className="text-lg font-bold pt-8 pb-8 px-8">
-          <Link href="/live-schedules">スケジュールをすべて見る</Link>
-        </Button>
-      </div>
-
-      <section className="mt-4 w-full max-w-[620px]">
+      <section className="mb-10 w-full max-w-[620px]">
         <Card className="overflow-hidden border-white/20 bg-black">
           <CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
             <Image
@@ -97,6 +74,39 @@ export default function HomeContent({
         </Card>
       </section>
 
+      <h2 className="mb-2 text-2xl font-bold tracking-tight">ライブ情報</h2>
+
+      <p>
+        ※<span className="text-2xl text-red-500">■</span>
+        の日はライブがあります！
+      </p>
+
+      <CalendarComponent items={liveScheduleItems} />
+
+      <section className="mb-6 w-full max-w-[860px]">
+        {nextLiveItem ? (
+          <LiveEventCard item={nextLiveItem} badge="Next Live" />
+        ) : (
+          <NoLiveSchedule />
+        )}
+      </section>
+
+      {featuredPresentsItem &&
+      featuredPresentsItem.date !== nextLiveItem?.date ? (
+        <section className="mb-10 w-full max-w-[860px]">
+          <LiveEventCard
+            item={featuredPresentsItem}
+            badge="HI-NOMADY Presents"
+          />
+        </section>
+      ) : null}
+
+      <div className="mb-10 flex justify-center">
+        <Button className="px-8 pb-8 pt-8 text-lg font-bold">
+          <Link href="/live-schedules">スケジュールをすべて見る</Link>
+        </Button>
+      </div>
+
       <div className="mt-10 w-full max-w-[860px]">
         <div className="mb-2 flex items-center justify-between gap-4">
           <h2 className="text-2xl font-bold tracking-tight">
@@ -121,14 +131,14 @@ export default function HomeContent({
           </div>
         ) : null}
         <div className="mt-4 flex justify-center">
-          <Button asChild className="text-lg font-bold pt-8 pb-8 px-8">
+          <Button asChild className="px-8 pb-8 pt-8 text-lg font-bold">
             <Link href="/supporters-videos">動画をすべて見る</Link>
           </Button>
         </div>
       </div>
 
       <div className="mt-20 w-full max-w-[860px]">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight">
           配信サイトで聴く
         </h2>
         <div className="flex justify-center">
@@ -139,7 +149,13 @@ export default function HomeContent({
   );
 }
 
-function NextLiveCard({ item }: { item: LiveScheduleItem }) {
+function LiveEventCard({
+  item,
+  badge,
+}: {
+  item: LiveScheduleItem;
+  badge: string;
+}) {
   const handleReservationClick = async () => {
     const message = createReservationMessage(item);
     let copied = false;
@@ -178,7 +194,7 @@ function NextLiveCard({ item }: { item: LiveScheduleItem }) {
           <div>
             <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <span className="rounded-full bg-red-600 px-4 py-1 text-[10px] font-extrabold uppercase tracking-[0.28em] text-white">
-                Next Live
+                {badge}
               </span>
               <time className="text-lg font-extrabold tracking-wide text-gray-200">
                 {formatScheduleDate(item.date)}
