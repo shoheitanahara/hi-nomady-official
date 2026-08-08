@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import CalendarComponent from '@/components/ui/calender-component';
 import { formatScheduleDate } from '@/lib/japan-date';
+import { localizedPath, type Locale } from '@/lib/i18n/config';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import {
   createReservationMessage,
   createReservationNotice,
@@ -15,6 +17,8 @@ import {
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface HomeContentProps {
+  locale: Locale;
+  dictionary: Dictionary;
   liveScheduleItems: LiveScheduleItem[];
   nextLiveItem: LiveScheduleItem | null;
   featuredPresentsItem: LiveScheduleItem | null;
@@ -22,18 +26,22 @@ interface HomeContentProps {
 }
 
 export default function HomeContent({
+  locale,
+  dictionary,
   liveScheduleItems,
   nextLiveItem,
   featuredPresentsItem,
   featuredHomeVideo,
 }: HomeContentProps) {
+  const t = dictionary.home;
+
   return (
     <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-14">
-      <h1 className="sr-only">Hi-NOMADY Official Site</h1>
+      <h1 className="sr-only">{t.siteTitle}</h1>
 
       <Image
         src="/images/top_header.jpg"
-        alt="Hi-NOMADY Official Site"
+        alt={t.siteTitle}
         width={600}
         height={200}
         loading="eager"
@@ -45,20 +53,20 @@ export default function HomeContent({
           <CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
             <Image
               src="/images/new-album-yanamunu.png"
-              alt="HI-NOMADY ヤナムヌ ジャケット"
+              alt={t.albumTitle}
               width={180}
               height={180}
               className="mx-auto w-[140px] rounded-md shadow-md sm:mx-0 sm:w-[180px]"
             />
             <div className="flex-1 text-center sm:text-left">
               <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
-                New Album
+                {t.newAlbum}
               </p>
               <CardTitle className="mt-2 text-2xl font-extrabold sm:text-3xl">
-                HI-NOMADY - ヤナムヌ
+                {t.albumTitle}
               </CardTitle>
               <p className="mt-2 text-sm text-muted-foreground">
-                一般発売日: 6月17日（水）
+                {t.albumReleaseDate}
               </p>
               <Button asChild className="mt-4 w-full sm:w-auto">
                 <a
@@ -66,7 +74,7 @@ export default function HomeContent({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  詳細を見る
+                  {t.viewDetails}
                 </a>
               </Button>
             </div>
@@ -74,20 +82,32 @@ export default function HomeContent({
         </Card>
       </section>
 
-      <h2 className="mb-2 text-2xl font-bold tracking-tight">ライブ情報</h2>
+      <h2 className="mb-2 text-2xl font-bold tracking-tight">{t.liveInfo}</h2>
 
       <p>
         ※<span className="text-2xl text-red-500">■</span>
-        の日はライブがあります！
+        {t.liveHint}
       </p>
 
-      <CalendarComponent items={liveScheduleItems} />
+      <CalendarComponent
+        items={liveScheduleItems}
+        locale={locale}
+        dictionary={dictionary.calendar}
+      />
 
       <section className="mb-6 w-full max-w-[860px]">
         {nextLiveItem ? (
-          <LiveEventCard item={nextLiveItem} badge="Next Live" />
+          <LiveEventCard
+            item={nextLiveItem}
+            badge={t.nextLive}
+            locale={locale}
+            reserveLabel={t.reserveOnInstagram}
+          />
         ) : (
-          <NoLiveSchedule />
+          <NoLiveSchedule
+            title={t.noLiveTitle}
+            description={t.noLiveDescription}
+          />
         )}
       </section>
 
@@ -96,27 +116,31 @@ export default function HomeContent({
         <section className="mb-10 w-full max-w-[860px]">
           <LiveEventCard
             item={featuredPresentsItem}
-            badge="HI-NOMADY Presents"
+            badge={t.presents}
+            locale={locale}
+            reserveLabel={t.reserveOnInstagram}
           />
         </section>
       ) : null}
 
       <div className="mb-10 flex justify-center">
-        <Button className="px-8 pb-8 pt-8 text-lg font-bold">
-          <Link href="/live-schedules">スケジュールをすべて見る</Link>
+        <Button asChild className="px-8 pb-8 pt-8 text-lg font-bold">
+          <Link href={localizedPath(locale, '/live-schedules')}>
+            {t.viewAllSchedules}
+          </Link>
         </Button>
       </div>
 
       <div className="mt-10 w-full max-w-[860px]">
         <div className="mb-2 flex items-center justify-between gap-4">
           <h2 className="text-2xl font-bold tracking-tight">
-            Supporter&apos;s Videos
+            {t.supportersVideos}
           </h2>
           <Link
-            href="/supporters-videos"
+            href={localizedPath(locale, '/supporters-videos')}
             className="text-sm font-bold text-muted-foreground transition-colors hover:text-white"
           >
-            すべて見る
+            {t.viewAll}
           </Link>
         </div>
         {featuredHomeVideo ? (
@@ -132,17 +156,17 @@ export default function HomeContent({
         ) : null}
         <div className="mt-4 flex justify-center">
           <Button asChild className="px-8 pb-8 pt-8 text-lg font-bold">
-            <Link href="/supporters-videos">動画をすべて見る</Link>
+            <Link href={localizedPath(locale, '/supporters-videos')}>
+              {t.viewAllVideos}
+            </Link>
           </Button>
         </div>
       </div>
 
       <div className="mt-20 w-full max-w-[860px]">
-        <h2 className="mb-2 text-2xl font-bold tracking-tight">
-          配信サイトで聴く
-        </h2>
+        <h2 className="mb-2 text-2xl font-bold tracking-tight">{t.streaming}</h2>
         <div className="flex justify-center">
-          <TuneCoreLink />
+          <TuneCoreLink title={dictionary.streaming.title} />
         </div>
       </div>
     </main>
@@ -152,9 +176,13 @@ export default function HomeContent({
 function LiveEventCard({
   item,
   badge,
+  locale,
+  reserveLabel,
 }: {
   item: LiveScheduleItem;
   badge: string;
+  locale: Locale;
+  reserveLabel: string;
 }) {
   const handleReservationClick = async () => {
     const message = createReservationMessage(item);
@@ -176,7 +204,7 @@ function LiveEventCard({
       <CardContent className="grid gap-0 p-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         {item.image && (
           <Link
-            href={`/live-schedules/${item.date}`}
+            href={localizedPath(locale, `/live-schedules/${item.date}`)}
             className="relative block aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[340px]"
           >
             <Image
@@ -213,7 +241,7 @@ function LiveEventCard({
               className="h-12 w-full rounded-lg text-base font-extrabold"
               onClick={handleReservationClick}
             >
-              Instagramで予約する
+              {reserveLabel}
             </Button>
           </div>
         </div>
@@ -222,16 +250,18 @@ function LiveEventCard({
   );
 }
 
-function NoLiveSchedule() {
+function NoLiveSchedule({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <Card className="border-dashed border-white/20 bg-black">
       <CardContent className="p-6 text-center">
-        <CardTitle className="text-2xl font-extrabold">
-          ライブ情報なし
-        </CardTitle>
-        <p className="mt-3 text-muted-foreground">
-          ライブのお誘いおまちしております！ Instagramからご連絡ください！
-        </p>
+        <CardTitle className="text-2xl font-extrabold">{title}</CardTitle>
+        <p className="mt-3 text-muted-foreground">{description}</p>
       </CardContent>
     </Card>
   );

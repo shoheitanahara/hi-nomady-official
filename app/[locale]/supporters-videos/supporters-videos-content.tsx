@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 const YOUTUBE_PLAYING_STATE = 1;
 const YOUTUBE_IFRAME_API_SRC = 'https://www.youtube.com/iframe_api';
@@ -80,10 +81,12 @@ function getControllableVideoUrl(src: string) {
 
 interface SupportersVideosContentProps {
   videos: string[];
+  dictionary: Dictionary['supportersVideos'];
 }
 
 export default function SupportersVideosContent({
   videos,
+  dictionary,
 }: SupportersVideosContentProps) {
   const playerRefs = useRef<YouTubePlayer[]>([]);
   const readyPlayerRefs = useRef<Set<YouTubePlayer>>(new Set());
@@ -149,11 +152,10 @@ export default function SupportersVideosContent({
             Hi-NOMADY
           </p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Supporter&apos;s Videos
+            {dictionary.title}
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
-            応援してくれる皆さんが投稿してくれているライブ映像や関連動画をまとめています。
-            いつも応援ありがとうございます。ぜひ動画をチェックして、Hi-NOMADYのライブの空気を広めてもらえたら嬉しいです。
+            {dictionary.description}
           </p>
         </div>
 
@@ -161,9 +163,9 @@ export default function SupportersVideosContent({
           <section className="mb-10">
             <div className="mb-3 flex items-center gap-3">
               <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-white">
-                Latest
+                {dictionary.latest}
               </span>
-              <h2 className="text-xl font-extrabold">最新動画</h2>
+              <h2 className="text-xl font-extrabold">{dictionary.latestVideos}</h2>
             </div>
             <VideoFrame
               id={iframeIds[0]}
@@ -176,9 +178,12 @@ export default function SupportersVideosContent({
         <section>
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-extrabold">Videos</h2>
+              <h2 className="text-2xl font-extrabold">{dictionary.videos}</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {videos.length} 本の動画
+                {dictionary.videoCount.replace(
+                  '{count}',
+                  String(videos.length)
+                )}
               </p>
             </div>
           </div>

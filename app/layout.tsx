@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
-import '../styles/globals.css';
-import { Inter } from 'next/font/google';
-import Header from '../components/layouts/header';
+import { headers } from 'next/headers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-// RootLayoutPropsの型を定義
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
+import { defaultLocale, isLocale } from '@/lib/i18n/config';
+import '../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Hi-NOMADY Official | ハイノマディ公式サイト',
@@ -15,23 +10,24 @@ export const metadata: Metadata = {
     'Hi-NOMADY Official site | ハイノマディ公式サイト。ライブ情報などをお届けします！',
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const headerList = await headers();
+  const localeHeader = headerList.get('x-locale');
+  const lang =
+    localeHeader && isLocale(localeHeader) ? localeHeader : defaultLocale;
+
   return (
-    <html lang="ja" className="dark">
+    <html lang={lang} className="dark">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body>
         <SpeedInsights />
-        <Header />
         {children}
-        <footer className="bg-gray-800 text-white p-4">
-          <div className="container mx-auto text-center">
-            <p>
-              &copy; {new Date().getFullYear()} Hi-NOMADY. All rights reserved.
-            </p>
-          </div>
-        </footer>
       </body>
     </html>
   );

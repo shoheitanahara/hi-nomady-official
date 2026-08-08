@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { formatScheduleDate } from '@/lib/japan-date';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import {
   createReservationMessage,
   createReservationNotice,
@@ -12,8 +13,15 @@ import {
 } from '@/lib/reservation';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
-export default function LiveSchedulePage() {
-  const { date } = useParams();
+interface LiveScheduleDetailProps {
+  dictionary: Dictionary['liveSchedules'];
+}
+
+export default function LiveScheduleDetail({
+  dictionary,
+}: LiveScheduleDetailProps) {
+  const params = useParams();
+  const date = params?.date;
   const [item, setItem] = useState<LiveScheduleItem | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -35,43 +43,61 @@ export default function LiveSchedulePage() {
   };
 
   useEffect(() => {
-    if (date) {
-      fetch(`/api/live-schedules/${date}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setItem(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-          setLoading(false);
-        });
+    if (!date || Array.isArray(date)) {
+      return;
     }
+
+    let cancelled = false;
+
+    fetch(`/api/live-schedules/${date}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (cancelled) return;
+        setItem(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        if (cancelled) return;
+        setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [date]);
+
+  if (!date || Array.isArray(date)) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="ml-4 text-xl font-semibold">Not found</p>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <p className="ml-4 text-xl font-semibold">Loading...</p>
       </div>
     );
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-6 max-w-3xl mx-auto py-24">
-      <h1 className="text-4xl font-extrabold lg:text-5xl mb-10 md:mb-20">
-        ライブ情報
+    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center px-6 py-24">
+      <h1 className="mb-10 text-4xl font-extrabold md:mb-20 lg:text-5xl">
+        {dictionary.detailTitle}
       </h1>
-      <h2 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl mb-10 md:mb-20">
+      <h2 className="mb-10 scroll-m-20 text-2xl font-bold tracking-tight md:mb-20 lg:text-2xl">
         {item?.title}
       </h2>
       {item?.image && (
-        <div className="w-full h-0 pb-[100%] md:pb-[75%] mb-10 rounded-lg shadow-lg overflow-hidden relative">
+        <div className="relative mb-10 h-0 w-full overflow-hidden rounded-lg pb-[100%] shadow-lg md:pb-[75%]">
           <Image
             src={item.image}
             alt={item.title}
@@ -86,24 +112,23 @@ export default function LiveSchedulePage() {
         <p className="whitespace-pre-line font-normal leading-7 text-gray-700 dark:text-gray-400">
           {item?.description}
         </p>
-        <p className="text-2xl text-black font-bold text-right dark:text-white">
+        <p className="text-right text-2xl font-bold text-black dark:text-white">
           {item?.date ? formatScheduleDate(item.date) : ''}
         </p>
       </div>
       {item && (
         <div className="mt-8 w-full rounded-lg border border-white/20 bg-black p-4 shadow shadow-black/40">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-            前売り予約
+            {dictionary.advanceTicket}
           </h3>
           <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
-            ボタンを押すと予約文がコピーされ、Instagramプロフィールを開きます。
-            DMに貼り付けて、お名前・枚数を入力して送信してください。
+            {dictionary.advanceTicketDescription}
           </p>
           <Button
             className="mt-4 w-full sm:w-auto"
             onClick={handleReservationClick}
           >
-            Instagramで予約する
+            {dictionary.reserveOnInstagram}
           </Button>
         </div>
       )}
