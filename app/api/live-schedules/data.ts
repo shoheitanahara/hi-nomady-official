@@ -972,6 +972,49 @@ DOOR:	未定
     image: '/images/2026-08-22.png',
   },
   {
+    title: 'Sick Shibuya Tokyo Presents A Date with SICK #1 @下北沢',
+    description: `
+      2026.9.5 sat
+      Shimokitazawa Flowers Loft
+      Ticket ADV ¥2,500 + 1d / DOOR ¥3,000 + 1d
+
+      BAND
+      Treaty
+      Angel Face
+      Hi-NOMADY
+      DIZZY DAZE
+      PROM
+      and more sickness...!
+    `,
+    date: '2026-09-05',
+    image: '/images/2026-09-05.png',
+  },
+  {
+    title: 'HI-NOMADY Presents DAIZE Night 6 @新宿',
+    description: `
+      2026.10.3 sat
+      SHINJUKU HEIST
+      OPEN / START 17:00
+      ¥3,000 + 1drink（¥600）
+
+      BANDS
+      ヤナムヌ Release Tour
+      HI-NOMADY
+      THE RADIOS
+      TIGERLILY
+      MITCHY DEAD WITH GARBAGEMAN
+      STOMPIN' RIFFRAFFS
+      THE MEMPHIS BELL
+
+      DJ
+      OKITA
+      ROBINSON
+      KARTOOZE
+    `,
+    date: '2026-10-03',
+    image: '/images/2026-10-03.png',
+  },
+  {
     title: 'YAMASORA FESTIVAL やまそら祭! 2026 @狭山稲荷山公園',
     description: `
       2026.10.4 sun（Day 2）

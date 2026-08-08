@@ -1,6 +1,11 @@
+/** トップページ固定表示用（自主動画）。サポーター動画追加時もここは変えない。 */
+export const featuredHomeVideo =
+  'https://www.youtube.com/embed/jHp2_Tv9DWc';
+
+/** Supporter's Videos 一覧。最新の動画を上に追加してください。 */
 export const supportersVideos = [
-  // 最新の動画を上に追加してください。
-  'https://www.youtube.com/embed/jHp2_Tv9DWc',
+  'https://www.youtube.com/embed/6iEXN1bonxU?si=Rw4BQdp5vYq-wOk1',
+  featuredHomeVideo,
   'https://www.youtube.com/embed/AMTYEgeRo9Y',
   'https://www.youtube.com/embed/X_Enw6fLMCw?si=60IeJA8JD64FysZv',
   'https://www.youtube.com/embed/I6OCOB6P2wk',

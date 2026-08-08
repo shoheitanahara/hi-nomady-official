@@ -17,13 +17,13 @@ import type { LiveScheduleItem } from '@/types/live-schedule';
 interface HomeContentProps {
   liveScheduleItems: LiveScheduleItem[];
   nextLiveItem: LiveScheduleItem | null;
-  supportersVideos: string[];
+  featuredHomeVideo: string | null;
 }
 
 export default function HomeContent({
   liveScheduleItems,
   nextLiveItem,
-  supportersVideos,
+  featuredHomeVideo,
 }: HomeContentProps) {
   return (
     <main className="flex min-h-screen flex-col items-center px-6 py-24 sm:px-14">
@@ -109,12 +109,12 @@ export default function HomeContent({
             すべて見る
           </Link>
         </div>
-        {supportersVideos[0] ? (
+        {featuredHomeVideo ? (
           <div className="overflow-hidden rounded-xl border border-white/20 bg-black shadow shadow-black/40">
             <iframe
               className="aspect-video w-full"
-              src={supportersVideos[0]}
-              title="Latest supporters video player"
+              src={featuredHomeVideo}
+              title="Featured home video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />

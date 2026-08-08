@@ -1,5 +1,5 @@
 import { items } from '@/app/api/live-schedules/data';
-import { supportersVideos } from '@/app/api/supporters/data';
+import { featuredHomeVideo } from '@/app/api/supporters/data';
 import {
   getNextLiveSchedule,
   sortLiveSchedulesByNewest,
@@ -16,7 +16,7 @@ export default function Home() {
     <HomeContent
       liveScheduleItems={liveScheduleItems}
       nextLiveItem={nextLiveItem}
-      supportersVideos={supportersVideos}
+      featuredHomeVideo={featuredHomeVideo}
     />
   );
 }
