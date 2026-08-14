@@ -961,15 +961,60 @@ DOOR:	未定
     image: '/images/2026-08-16.png',
   },
   {
-    title: 'CODE;PLAYORK presents Bathroom Play @新宿',
+    title: 'Bathroom PLAY 2026 @新宿',
     description: `
       2026.8.22 sat
       新宿 HEIST
-      OPEN TBD
-      ADV ¥2,500
+      ADV ¥2,500 / DOOR ¥3,000
+
+      HOST
+      CODE;PLAYORK
+
+      STAGE ARTIST
+      Hi-Nomady
+      N.R.R
+      unRealless
+      楔
+
+      DJ ARTIST
+      KANEDA
+      KE
+      NAMI
     `,
     date: '2026-08-22',
     image: '/images/2026-08-22.png',
+  },
+  {
+    title: 'ONE REG DJ NIGHT Vol.6 @渋谷',
+    description: `
+      2026.8.23 sun
+      SHIBUYA ROOTS DJ BAR
+      OPEN / START 15:00 / CLOSE 22:00
+      ¥2,000（※再入場可）
+
+      Guest Live
+      HI-NOMADY
+
+      Guest DJ
+      忌夢ノイロウゼ
+      SHIGERU（SLAP of CEMETERY）
+
+      Regular DJ
+      JUN MIYABILLY（ex-SCABROX）
+      TOKI AMABILLY TOTZBULLKING
+      1CHAN
+      WHITE DOLPHIN BILLY MADY（TWC）
+
+      Goods & Food
+      TWC
+      HI-NOMADY
+      SHIMAKURA
+
+      ROOTS 渋谷区宇田川町11-6 渋谷宇田川KKビル3F
+      Tel 03-6273-2345
+    `,
+    date: '2026-08-23',
+    image: '/images/2026-08-23.png',
   },
   {
     title: 'Sick Shibuya Tokyo Presents A Date with SICK #1 @下北沢',
