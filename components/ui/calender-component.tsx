@@ -20,6 +20,7 @@ import {
   INSTAGRAM_PROFILE_URL,
 } from '@/lib/reservation';
 import { getJapanTodayDate } from '@/lib/japan-date';
+import { getScheduleImages } from '@/lib/live-schedules';
 import type { LiveScheduleItem } from '@/types/live-schedule';
 
 interface CalendarComponentProps {
@@ -130,18 +131,20 @@ export default function CalendarComponent({
             <div className="min-h-0 flex-1 overflow-y-auto pr-1">
               {data ? (
                 <>
-                  {data.image && (
-                    <div className="relative mb-3 h-[220px] w-full overflow-hidden rounded-lg md:h-[360px]">
+                  {getScheduleImages(data).map((src) => (
+                    <div
+                      key={src}
+                      className="relative mb-3 h-[220px] w-full overflow-hidden rounded-lg md:h-[360px]"
+                    >
                       <Image
-                        src={data.image}
+                        src={src}
                         alt={data.title}
                         className="rounded-lg object-contain"
                         fill
-                        priority
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                  )}
+                  ))}
                   {data.description ? (
                     <p className="whitespace-pre-line leading-6 text-foreground">
                       {data.description}

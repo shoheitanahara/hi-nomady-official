@@ -51,3 +51,8 @@ export function getFeaturedPresentsEvent(
 
   return item;
 }
+
+/** 表紙 + 追加フライヤーを重複なしで返す */
+export function getScheduleImages(item: LiveScheduleItem): string[] {
+  return [...new Set([item.image, ...(item.images ?? [])].filter(Boolean))] as string[];
+}

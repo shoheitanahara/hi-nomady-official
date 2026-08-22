@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { formatScheduleDate } from '@/lib/japan-date';
+import { getScheduleImages } from '@/lib/live-schedules';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import {
   createReservationMessage,
@@ -96,18 +97,25 @@ export default function LiveScheduleDetail({
       <h2 className="mb-10 scroll-m-20 text-2xl font-bold tracking-tight md:mb-20 lg:text-2xl">
         {item?.title}
       </h2>
-      {item?.image && (
-        <div className="relative mb-10 h-0 w-full overflow-hidden rounded-lg pb-[100%] shadow-lg md:pb-[75%]">
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            priority
-            className="rounded-lg object-contain"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
-          />
+      {item && getScheduleImages(item).length > 0 ? (
+        <div className="mb-10 flex w-full flex-col gap-4">
+          {getScheduleImages(item).map((src, index) => (
+            <div
+              key={src}
+              className="relative h-0 w-full overflow-hidden rounded-lg pb-[100%] shadow-lg md:pb-[75%]"
+            >
+              <Image
+                src={src}
+                alt={`${item.title} ${index + 1}`}
+                fill
+                priority={index === 0}
+                className="rounded-lg object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
+              />
+            </div>
+          ))}
         </div>
-      )}
+      ) : null}
       <div className="w-full rounded-lg border border-white/20 bg-black p-4 shadow shadow-black/40">
         <p className="whitespace-pre-line font-normal leading-7 text-gray-700 dark:text-gray-400">
           {item?.description}

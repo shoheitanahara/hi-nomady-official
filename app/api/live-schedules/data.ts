@@ -1131,6 +1131,87 @@ DOOR:	未定
     image: '/images/2026-10-17.png',
   },
   {
+    title: 'TOKYO RUSTIC JAMBOREE 30th ANNIVERSARY 2026 @新宿LOFT',
+    description: `
+      2026.11.7 sat
+      SHINJUKU LOFT
+      OPEN / START 12:00
+      ADV ¥4,500 / DOOR ¥5,000
+
+      BAND
+      BLUE MOON COMBINE（DIESEL POWER）
+      CABALLERO POLKERS
+      CAMP
+      casquettes
+      Dirty Old DrunX
+      DOG'GIE DOGG
+      GOOFY KINGLETS
+      Hi-NOMADY
+      HOBBLEDEES
+      The HOLSTERS
+      ジョニーモイキーとモイキースイング
+      Mantis the Ripper
+      OLEDICKFOGGY
+      Pessor P.Peseta
+      Pinch of Snuff
+      神塾ミッドナイトレジスタンス
+      トリックスターグーニーズ
+      U'nderway
+      宇宙民族
+      ...and more
+
+      DJ
+      BEN（天の音・百鬼夜夜）
+      BILLY（URAWA ROCKIN’ BLUES）
+      BU$HI（PLEASURExSPACE）
+      Dabis-K（TO¥O $€NX）
+      INAMI（東京ロンドン化計画）
+      KAKEI（the WILD ROVER）
+      mina（TOO.MUCH.XXX）
+      NAKANO（DRINK'EM ALL）
+      TOSSY（REVENGE!）
+      YAGI（PLEASURE SPACE）
+      YU-TO（BULLET ROCK）
+      ...and more
+
+      Ticket
+      ぴあ P-code 335-829
+      ローソン L-code 73859
+      e+
+      または LOFT店頭
+
+      INFO: SHINJUKU LOFT 03-5272-0382
+    `,
+    date: '2026-11-07',
+    image: '/images/2026-11-07.png',
+    images: [
+      '/images/2026-11-07-lineup.png',
+      '/images/2026-11-07-tickets.png',
+    ],
+  },
+  {
+    title: 'SASARA MOSARA @FIREBIRD',
+    description: `
+      2026.11.29 sun
+      FIREBIRD
+      OPEN / START 16:00
+      ADV ¥3000 + DRINK / DOOR ¥3500 + DRINK
+
+      THE TUESDAY
+      GREAT INVADERS
+      ゴッサム団長
+      Hi-NOMADY
+      THEジェラシーズ
+      TOKI（黒糖ロッカーズ）
+      フル新中野
+
+      〒270-0034 千葉県松戸市新松戸2-118 新松戸ビル5F
+      Tel 047-347-9669
+    `,
+    date: '2026-11-29',
+    image: '/images/2026-11-29.png',
+  },
+  {
     title: 'PSYCLONE BOOGIE',
     description: `
       2027.1.23 sat

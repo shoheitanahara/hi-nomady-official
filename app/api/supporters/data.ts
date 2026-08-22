@@ -4,6 +4,7 @@ export const featuredHomeVideo =
 
 /** Supporter's Videos 一覧。最新の動画を上に追加してください。 */
 export const supportersVideos = [
+  'https://www.youtube.com/embed/pl1ZEG2JUY8',
   'https://www.youtube.com/embed/6iEXN1bonxU?si=Rw4BQdp5vYq-wOk1',
   featuredHomeVideo,
   'https://www.youtube.com/embed/AMTYEgeRo9Y',
