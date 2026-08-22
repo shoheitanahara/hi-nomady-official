@@ -1035,6 +1035,29 @@ DOOR:	未定
     image: '/images/2026-09-05.png',
   },
   {
+    title: 'DYNAMO PRESENTS MIDNIGHT DYNAMOS @金沢',
+    description: `
+      2026.9.26 sat
+      金沢 GUERNICA
+      OPEN 19:00 / START 19:30
+      DOOR ¥3,900 + 1d
+
+      BAND
+      THE HIGHMARTS
+      HI-NOMADY
+      SHOTGUN RUNNERS
+      P.C.2
+
+      DJ
+      TKZ & ANNDO
+
+      INFO
+      DYNAMO 076-282-5799
+    `,
+    date: '2026-09-26',
+    image: '/images/2026-09-26.png',
+  },
+  {
     title: 'HI-NOMADY Presents DAIZE Night 6 @新宿',
     description: `
       2026.10.3 sat
