@@ -1035,6 +1035,30 @@ DOOR:	未定
     image: '/images/2026-09-05.png',
   },
   {
+    title: 'BLAST JAMS!! Vintage Music for Teenagers @下北沢',
+    description: `
+      2026.9.22 tue
+      SHIMOKITAZAWA THREE
+      OPEN 18:00
+      ENTRANCE ¥2,500 + D
+      TEENAGERS FREE
+
+      LIVE
+      STOMPIN' RIFFRAFFS
+      THE MUDDIES
+      Hi-NOMADY
+      ザ・ヒーローズ
+
+      GUEST DJ
+      Foxy Lady
+
+      DJ
+      BLASTJAMS!! CREW
+    `,
+    date: '2026-09-22',
+    image: '/images/2026-09-22.png',
+  },
+  {
     title: 'DYNAMO PRESENTS MIDNIGHT DYNAMOS @金沢',
     description: `
       2026.9.26 sat
@@ -1112,22 +1136,25 @@ DOOR:	未定
     image: '/images/2026-10-04.png',
   },
   {
-    title: '空襲警報 AIR RAID WARNING',
+    title: 'Zerosen Presents 空襲警報 AIR RAID WARNING @那覇',
     description: `
       2026.10.11 sun
-      CYBER BOX
+      CYBER BOX（沖縄県那覇市松山1丁目32-5 むらたビル 7F）
+      OPEN 17:00 / START 17:30
+      ¥2,500 + 1drink
 
-      Rudy
-      FAT KAZUYA BAND
-      Hi-Nomady
-      NANASAWA NAREI
-      ZERO SEN
-      INFEXTION LITE 2
-
-      DJ AKIHIRO
+      TIMETABLE
+      17:00 DJ AKIHIRO
+      17:30 INFEXTION LITEZ
+      18:10 FAT KAZUYA BAND
+      18:45 ZEROSEN
+      19:20 RUDY
+      19:55 HI-NOMADY
+      20:30 七騒ユーレイ
     `,
     date: '2026-10-11',
     image: '/images/2026-10-11.png',
+    images: ['/images/2026-10-11-lineup.png'],
   },
   {
     title: 'DARKMEN PRESENTS DARKNIGHTMARE vol.4 — Hi-NOMADY レコ発 @Pop! Pizza',
