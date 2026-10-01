@@ -1136,6 +1136,29 @@ DOOR:	未定
     image: '/images/2026-10-04.png',
   },
   {
+    title: "REMY'S FEST 2026 — 12 Year Anniversary @沖縄",
+    description: `
+      2026.10.10 sat（Day 1）
+      ※フェス開催: 2026.10.10 sat〜10.11 sun
+      Remy's
+      18:30–24:00
+      ¥2,000（学生入場無料）
+
+      Day 1 LINEUP（Hi-NOMADY出演日）
+      RISKY（HEAVY ALT）
+      ILLUMINATI（METAL/HARDCORE）
+      AS ALLIANCE（METALCORE）
+      ZERO SEN（TRIBAL METAL）
+      AJNA（GOTHIC METAL）
+      RUDY（PUNK ROCK）
+      HI NOMADY（PSYCHOBILLY）
+      KYNKYY（EMO/NU METAL）
+      FAT KAZYA BAND（COMIC ROCK）
+    `,
+    date: '2026-10-10',
+    image: '/images/2026-10-10.png',
+  },
+  {
     title: 'Zerosen Presents 空襲警報 AIR RAID WARNING @那覇',
     description: `
       2026.10.11 sun
@@ -1161,6 +1184,7 @@ DOOR:	未定
     description: `
       2026.10.17 sat
       Pop! Pizza（京都）
+      OPEN 17:00 / START 17:30
       ADV ¥3,000 + 1drink / DAY ¥3,500 + 1drink
 
       〒602-0858 京都市上京区東桜町21-11
@@ -1179,6 +1203,25 @@ DOOR:	未定
     `,
     date: '2026-10-17',
     image: '/images/2026-10-17.png',
+  },
+  {
+    title: 'Gigs ON YOUR Way Home @下北沢',
+    description: `
+      2026.10.23 fri
+      LIVE HAUS
+      DOORS 19:00
+      ¥2,300 + 1drink
+
+      Hi-NOMADY
+      PROM
+      有刺鉄戦
+      frozen
+
+      DJ
+      DJ BISCO（Episode Sounds）
+    `,
+    date: '2026-10-23',
+    image: '/images/2026-10-23.png',
   },
   {
     title: 'TOKYO RUSTIC JAMBOREE 30th ANNIVERSARY 2026 @新宿LOFT',
@@ -1240,12 +1283,36 @@ DOOR:	未定
     ],
   },
   {
+    title: 'CLUB ZOU presents ELEPHANTRICK vol.20 — Hi-NOMADY レコ発 @清水',
+    description: `
+      2026.11.14 sat
+      CLUB ZOU -SHIMIZU-
+      START 18:30
+      ¥3,000（1drink込み）
+
+      静岡県静岡市清水区旭町3-26
+      清水駅徒歩10分 / 新清水駅徒歩3分
+
+      BAND
+      Hi-NOMADY（1st Album ヤナムヌ レコ発）
+      DILDOS
+      The flying jalapenos
+      清水デスパルス
+
+      DJ
+      ますみ（Dry Bones）
+      JUGON
+    `,
+    date: '2026-11-14',
+    image: '/images/2026-11-14.png',
+  },
+  {
     title: 'SASARA MOSARA @FIREBIRD',
     description: `
       2026.11.29 sun
       FIREBIRD
       OPEN / START 16:00
-      ADV ¥3000 + DRINK / DOOR ¥3500 + DRINK
+      ADV ¥3,000 + DRINK / DOOR ¥3,500 + DRINK
 
       THE TUESDAY
       GREAT INVADERS
@@ -1253,13 +1320,32 @@ DOOR:	未定
       Hi-NOMADY
       THEジェラシーズ
       TOKI（黒糖ロッカーズ）
-      フル新中野
+      ブル新中野
 
       〒270-0034 千葉県松戸市新松戸2-118 新松戸ビル5F
       Tel 047-347-9669
+      Mail firebird@aj-group.co.jp
     `,
     date: '2026-11-29',
     image: '/images/2026-11-29.png',
+  },
+  {
+    title: 'SERIOUS PUBLISHING TOKYO PARTY @幡ヶ谷',
+    description: `
+      2026.12.9 wed
+      CLUB HEAVY SICK（Hatagaya, TOKYO）
+      OPEN / START 19:00
+      ADV ¥500 + 1drink（¥600） / DOOR ¥1,000 + 1drink（¥600）
+
+      LIVE SHOW
+      the Boing vs Hi-NOMADY
+
+      DJ
+      AKANE KONDO（THE MERCIES）
+      YÜKIÖ TCB（PSY）
+    `,
+    date: '2026-12-09',
+    image: '/images/2026-12-09.png',
   },
   {
     title: 'PSYCLONE BOOGIE',
