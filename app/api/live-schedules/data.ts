@@ -1191,15 +1191,17 @@ DOOR:	未定
 
       ACT
       DARKMEN
-      Hi-NOMADY（宮古島）
-      THE WOODCHUCK（東京）
-      RAISE A FLAG（東京）
+      Hi-NOMADY
+      RAISE A FLAG
+      日下孔（Naked yeggs）
+
+      ※THE WOODCHUCKは諸事情の為出演キャンセルとなりましたが、物販は販売させていただきます。
 
       DJ
       OKA
       みり（西成帝国）
       DEATH WADAA
-      KIYOBILLY（ALIENSLAP FROM NAGOYA）
+      KIYOBILLY（ALIEN SLAP FROM NAGOYA）
     `,
     date: '2026-10-17',
     image: '/images/2026-10-17.png',
