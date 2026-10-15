@@ -1207,6 +1207,29 @@ DOOR:	未定
     image: '/images/2026-10-17.png',
   },
   {
+    title: 'MAGICAL GARDEN @下北沢',
+    description: `
+      2026.10.19 mon MIDNIGHT
+      LIVE HAUS
+      OPEN 24:30
+      ¥3,000 + D
+
+      LIVE
+      HI-NOMADY
+      GERONIMO
+
+      DJ
+      TOSHIO SASAI
+      MYKEY
+      KCT
+      MAGICAL GARDEN
+
+      FREEMAN POTHEAD
+    `,
+    date: '2026-10-19',
+    image: '/images/2026-10-19.png',
+  },
+  {
     title: 'Gigs ON YOUR Way Home @下北沢',
     description: `
       2026.10.23 fri
