@@ -1373,6 +1373,66 @@ DOOR:	未定
     image: '/images/2026-12-09.png',
   },
   {
+    title: 'CRACKS PRESENTS PSYCHOHOLIC REVOLT 2026 @新宿LOFT',
+    description: `
+      2026.12.29 tue
+      新宿LOFT
+      OPEN 13:30 / START 14:00
+      ADV ¥4,000 / DOOR ¥4,500
+
+      SPIKE 3rd album "Thunder Underground" Release Tour!!
+      ノイロウゼ 30TH ANNIVERSARY!!
+
+      BAND
+      CRACKS
+      BLACK SHADOW
+      CABARETS
+      CHICKEN JUMP SKIPS
+      HAYATO AND HIS BRAND NEW BEATS
+      Hi-NOMADY
+      HOT BOOGIE 55
+      ノイロウゼ
+      SPIKE
+      STOMPIN' RIFFRAFS
+      THE JUNGLES!!!
+      The Paint It Blue
+      THE PSYCLOCKS
+      THE SWING KIDS
+      TIGERLILY
+      TOKYO SCUM RATS
+
+      DJ
+      TAKESHI（SLAP of CEMETERY）
+      DADDY-O-NOV（BACK FROM THE GRAVE）
+      KIYOBILLY（ALIEN SLAP FROM NAGOYA）
+      ISAO（NUREGORI）
+      NAOYA（CLUB ZOU）
+      YOUTHI_raw（MOSH BOYz）
+      TAMAE（ponytailz）
+      ますみ（Dry bones）
+      SHIGERU（SLAP of CEMETERY）
+      MARU（DUCKTAIL CLOTHING）
+      MAKI
+      Kartooze
+      ブル新中野
+
+      MC
+      TAKESHI（SLAP of CEMETERY）
+      katzGRAIS
+
+      Ticket
+      ※CRACKSより前売り予約の方、先着でイベントポスター（A2サイズ）付
+      MAIL: info@cracks666.com
+      eプラス https://eplus.jp/sf/detail/4624600001-P0030001
+
+      新宿LOFT
+      〒160-0021 東京都新宿区歌舞伎町1-12-9 タテハナビルB2
+      TEL: 03-5272-0382
+    `,
+    date: '2026-12-29',
+    image: '/images/2026-12-29.png',
+  },
+  {
     title: 'PSYCLONE BOOGIE',
     description: `
       2027.1.23 sat
